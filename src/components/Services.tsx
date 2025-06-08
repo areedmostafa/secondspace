@@ -15,16 +15,22 @@ const services = [
     features: ["Meta Ads", "TikTok Ads", "Retargeting", "Creative Testing"]
   },
   {
-    title: "Influencer Marketing",
-    description: "Strategic partnerships with micro and macro influencers that align with your brand values.",
-    icon: "👥",
-    features: ["Influencer Sourcing", "Campaign Management", "Performance Tracking", "Content Rights"]
+    title: "Web Development",
+    description: "Custom website development and optimization to create powerful digital experiences that convert.",
+    icon: "💻",
+    features: ["Custom Websites", "E-commerce Solutions", "Mobile Optimization", "Performance Tuning"]
   },
   {
-    title: "Content Creation",
-    description: "High-converting visual content, videos, and copy that stops the scroll and drives action.",
+    title: "Video Editing",
+    description: "Professional video editing services for social media, ads, and promotional content that captivates audiences.",
+    icon: "🎬",
+    features: ["Social Media Videos", "Ad Creatives", "Promotional Content", "Motion Graphics"]
+  },
+  {
+    title: "Graphics Design",
+    description: "Eye-catching visual designs for social media, branding, and marketing materials that drive engagement.",
     icon: "🎨",
-    features: ["Video Production", "Graphic Design", "Copywriting", "UGC Creation"]
+    features: ["Social Media Graphics", "Brand Identity", "Marketing Materials", "Logo Design"]
   },
   {
     title: "Analytics & Reporting",
