@@ -23,8 +23,8 @@ const Footer = () => {
             <ul className="space-y-2 text-muted-foreground">
               <li><a href="#" className="hover:text-primary transition-colors">Social Media Management</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Paid Advertising</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Influencer Marketing</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Content Creation</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Web Development</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Video Editing</a></li>
             </ul>
           </div>
 

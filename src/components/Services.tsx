@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 
 const services = [
@@ -31,12 +30,6 @@ const services = [
     description: "Eye-catching visual designs for social media, branding, and marketing materials that drive engagement.",
     icon: "🎨",
     features: ["Social Media Graphics", "Brand Identity", "Marketing Materials", "Logo Design"]
-  },
-  {
-    title: "Analytics & Reporting",
-    description: "Comprehensive performance tracking with actionable insights and transparent reporting.",
-    icon: "📊",
-    features: ["Performance Analytics", "ROI Tracking", "Competitor Analysis", "Monthly Reports"]
   },
   {
     title: "Strategy Consulting",
