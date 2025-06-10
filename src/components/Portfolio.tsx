@@ -6,9 +6,10 @@ import { Button } from '@/components/ui/button';
 const portfolioItems = [
   {
     id: 1,
-    client: "LuxuryFashion Co.",
+    client: "MadKoffee",
     industry: "luxury",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
+    logo: "/lovable-uploads/4d572232-8151-407e-b663-27889d74856a.png",
     roi: "+450% ROI",
     metric: "2.3M Reach",
     description: "Complete brand transformation with luxury positioning strategy"
@@ -33,34 +34,57 @@ const portfolioItems = [
   },
   {
     id: 4,
-    client: "FitnessPro",
+    client: "Nutrition Depot",
     industry: "fitness",
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
+    logo: "/lovable-uploads/a680ff20-6c40-4339-800d-a8c737b4f62e.png",
     roi: "+390% ROI",
     metric: "100K Members",
     description: "Community-driven fitness brand growth strategy"
   },
   {
     id: 5,
-    client: "BeautyBrand",
+    client: "The Mall",
     industry: "beauty",
     image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&h=300&fit=crop",
+    logo: "/lovable-uploads/5d9e915a-0e23-45bc-a328-5309f5140dfb.png",
     roi: "+410% ROI",
     metric: "5M Views",
     description: "Viral beauty content strategy with UGC campaigns"
   },
   {
     id: 6,
-    client: "RestaurantChain",
+    client: "Beans & Aroma",
     industry: "food",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
+    logo: "/lovable-uploads/c7c25487-d0fd-437f-886c-36bd94c4b8e6.png",
     roi: "+260% ROI",
     metric: "200% Traffic",
     description: "Local restaurant marketing with geo-targeted campaigns"
+  },
+  {
+    id: 7,
+    client: "The Grove Bistro",
+    industry: "food",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
+    logo: "/lovable-uploads/bbce0636-07b5-4475-beca-f1295cdc1d1a.png",
+    roi: "+340% ROI",
+    metric: "180% Sales",
+    description: "Upscale dining experience marketing with premium positioning"
+  },
+  {
+    id: 8,
+    client: "LifeSpring",
+    industry: "healthcare",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop",
+    logo: "/lovable-uploads/edcbb890-2f46-444c-9e29-df8e2f74b71f.png",
+    roi: "+220% ROI",
+    metric: "50K Patients",
+    description: "Healthcare marketing with patient-focused digital strategies"
   }
 ];
 
-const industries = ["all", "luxury", "saas", "ecommerce", "fitness", "beauty", "food"];
+const industries = ["all", "luxury", "saas", "ecommerce", "fitness", "beauty", "food", "healthcare"];
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -112,9 +136,18 @@ const Portfolio = () => {
                 </div>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                  {item.client}
-                </h3>
+                <div className="flex items-center gap-3 mb-4">
+                  {item.logo && (
+                    <img 
+                      src={item.logo} 
+                      alt={`${item.client} logo`}
+                      className="h-8 w-auto object-contain"
+                    />
+                  )}
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {item.client}
+                  </h3>
+                </div>
                 <p className="text-muted-foreground text-sm">
                   {item.description}
                 </p>
