@@ -15,24 +15,6 @@ const portfolioItems = [
     description: "Complete brand transformation with luxury positioning strategy"
   },
   {
-    id: 2,
-    client: "TechStart SaaS",
-    industry: "saas",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
-    roi: "+280% ROI",
-    metric: "50K Leads",
-    description: "B2B lead generation campaign across LinkedIn and Meta"
-  },
-  {
-    id: 3,
-    client: "EcoCommerce",
-    industry: "ecommerce",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-    roi: "+320% ROI",
-    metric: "1.8M Revenue",
-    description: "Sustainable product marketing with influencer partnerships"
-  },
-  {
     id: 4,
     client: "Nutrition Depot",
     industry: "fitness",
@@ -84,7 +66,7 @@ const portfolioItems = [
   }
 ];
 
-const industries = ["all", "luxury", "saas", "ecommerce", "fitness", "beauty", "food", "healthcare"];
+const industries = ["all", "luxury", "fitness", "beauty", "food", "healthcare"];
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -123,11 +105,26 @@ const Portfolio = () => {
           {filteredItems.map((item) => (
             <Card key={item.id} className="bg-card border-border hover-glow group overflow-hidden">
               <div className="relative overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.client}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+                <div 
+                  className="w-full h-48 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundBlendMode: 'multiply',
+                    backgroundColor: 'rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  {item.logo && (
+                    <div 
+                      className="absolute inset-0 bg-center bg-no-repeat opacity-90"
+                      style={{
+                        backgroundImage: `url(${item.logo})`,
+                        backgroundSize: '120px auto',
+                        backgroundPosition: 'center',
+                        filter: 'brightness(0) invert(1)'
+                      }}
+                    />
+                  )}
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">
                   <div className="text-center p-4">
                     <div className="text-2xl font-bold text-primary mb-1">{item.roi}</div>
@@ -136,18 +133,9 @@ const Portfolio = () => {
                 </div>
               </div>
               <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  {item.logo && (
-                    <img 
-                      src={item.logo} 
-                      alt={`${item.client} logo`}
-                      className="h-8 w-auto object-contain"
-                    />
-                  )}
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    {item.client}
-                  </h3>
-                </div>
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                  {item.client}
+                </h3>
                 <p className="text-muted-foreground text-sm">
                   {item.description}
                 </p>
