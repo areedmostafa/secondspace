@@ -106,25 +106,11 @@ const Portfolio = () => {
             <Card key={item.id} className="bg-card border-border hover-glow group overflow-hidden">
               <div className="relative overflow-hidden">
                 <div 
-                  className="w-full h-48 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-48 bg-contain bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110 bg-muted"
                   style={{
-                    backgroundImage: `url(${item.image})`,
-                    backgroundBlendMode: 'multiply',
-                    backgroundColor: 'rgba(0, 0, 0, 0.3)'
+                    backgroundImage: `url(${item.logo})`,
                   }}
-                >
-                  {item.logo && (
-                    <div 
-                      className="absolute inset-0 bg-center bg-no-repeat opacity-90"
-                      style={{
-                        backgroundImage: `url(${item.logo})`,
-                        backgroundSize: '120px auto',
-                        backgroundPosition: 'center',
-                        filter: 'brightness(0) invert(1)'
-                      }}
-                    />
-                  )}
-                </div>
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">
                   <div className="text-center p-4">
                     <div className="text-2xl font-bold text-primary mb-1">{item.roi}</div>
