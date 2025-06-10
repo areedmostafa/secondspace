@@ -54,7 +54,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold">Email Us</div>
-                  <div className="text-muted-foreground">hello@scaledagency.com</div>
+                  <div className="text-muted-foreground">areedmostafa@gmail.com</div>
                 </div>
               </div>
               <div className="flex items-center">
@@ -63,7 +63,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold">Call Us</div>
-                  <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                  <div className="text-muted-foreground">01777970739</div>
                 </div>
               </div>
               <div className="flex items-center">
@@ -160,10 +160,11 @@ const Contact = () => {
                       className="w-full px-3 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
                     >
                       <option value="">Select budget range</option>
-                      <option value="5k-10k">$5K - $10K</option>
-                      <option value="10k-25k">$10K - $25K</option>
-                      <option value="25k-50k">$25K - $50K</option>
-                      <option value="50k+">$50K+</option>
+                      <option value="500-1k">$500 - $1K</option>
+                      <option value="1k-2k">$1K - $2K</option>
+                      <option value="2k-3k">$2K - $3K</option>
+                      <option value="3k-4k">$3K - $4K</option>
+                      <option value="4k-5k">$4K - $5K</option>
                     </select>
                   </div>
                 </div>

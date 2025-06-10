@@ -2,6 +2,20 @@
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const handleGetAuditClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleStrategyCallClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-dark relative overflow-hidden">
       {/* Background Effects */}
@@ -30,10 +44,19 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
-            <Button size="lg" className="bg-gradient-accent hover:opacity-90 text-background font-semibold px-8 py-4 hover-glow">
+            <Button 
+              size="lg" 
+              onClick={handleGetAuditClick}
+              className="bg-gradient-accent hover:opacity-90 text-background font-semibold px-8 py-4 hover-glow"
+            >
               Get a Free Audit
             </Button>
-            <Button size="lg" variant="outline" className="border-border hover:bg-muted px-8 py-4">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              onClick={handleStrategyCallClick}
+              className="border-border hover:bg-muted px-8 py-4"
+            >
               Book Strategy Call
             </Button>
           </div>

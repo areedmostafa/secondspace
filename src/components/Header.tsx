@@ -5,6 +5,13 @@ import { Button } from '@/components/ui/button';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleGetAuditClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
@@ -32,7 +39,10 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-gradient-accent hover:opacity-90 text-background font-semibold">
+            <Button 
+              onClick={handleGetAuditClick}
+              className="bg-gradient-accent hover:opacity-90 text-background font-semibold"
+            >
               Get Free Audit
             </Button>
           </div>
@@ -64,7 +74,10 @@ const Header = () => {
               <a href="#contact" className="text-foreground hover:text-primary transition-colors">
                 Contact
               </a>
-              <Button className="bg-gradient-accent hover:opacity-90 text-background font-semibold w-full mt-4">
+              <Button 
+                onClick={handleGetAuditClick}
+                className="bg-gradient-accent hover:opacity-90 text-background font-semibold w-full mt-4"
+              >
                 Get Free Audit
               </Button>
             </nav>
