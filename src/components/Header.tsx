@@ -17,8 +17,12 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold text-gradient">
-            SCALED
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" 
+              alt="Scaled Logo" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
