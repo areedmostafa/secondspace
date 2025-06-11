@@ -1,28 +1,21 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const handleGetAuditClick = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-6 py-4">
+  return <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <div className="container mx-auto px-6 py-0">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" 
-              alt="Scaled Logo" 
-              className="h-17 w-auto transition-all duration-300 hover:scale-105"
-            />
+            <img src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" alt="Scaled Logo" className="h-17 w-auto transition-all duration-300 hover:scale-105" />
           </div>
 
           {/* Desktop Navigation */}
@@ -43,28 +36,21 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button 
-              onClick={handleGetAuditClick}
-              className="bg-gradient-accent hover:opacity-90 text-background font-semibold"
-            >
+            <Button onClick={handleGetAuditClick} className="bg-gradient-accent hover:opacity-90 text-background font-semibold">
               Get Free Audit
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="md:hidden text-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border">
+        {isMenuOpen && <div className="md:hidden mt-4 py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
               <a href="#services" className="text-foreground hover:text-primary transition-colors">
                 Services
@@ -78,18 +64,12 @@ const Header = () => {
               <a href="#contact" className="text-foreground hover:text-primary transition-colors">
                 Contact
               </a>
-              <Button 
-                onClick={handleGetAuditClick}
-                className="bg-gradient-accent hover:opacity-90 text-background font-semibold w-full mt-4"
-              >
+              <Button onClick={handleGetAuditClick} className="bg-gradient-accent hover:opacity-90 text-background font-semibold w-full mt-4">
                 Get Free Audit
               </Button>
             </nav>
-          </div>
-        )}
+          </div>}
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
