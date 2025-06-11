@@ -1,7 +1,10 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleGetAuditClick = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -10,12 +13,18 @@ const Header = () => {
       });
     }
   };
-  return <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+
+  return (
+    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-0">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <img src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" alt="Scaled Logo" className="h-17 w-auto transition-all duration-300 hover:scale-105" />
+            <img 
+              src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" 
+              alt="Scaled Logo" 
+              className="h-20 w-auto transition-all duration-300 hover:scale-105" 
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -50,7 +59,8 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && <div className="md:hidden mt-4 py-4 border-t border-border">
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
               <a href="#services" className="text-foreground hover:text-primary transition-colors">
                 Services
@@ -68,8 +78,11 @@ const Header = () => {
                 Get Free Audit
               </Button>
             </nav>
-          </div>}
+          </div>
+        )}
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
