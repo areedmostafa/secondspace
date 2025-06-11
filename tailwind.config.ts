@@ -22,6 +22,9 @@ export default {
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
 			},
+			spacing: {
+				'17': '4.25rem',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

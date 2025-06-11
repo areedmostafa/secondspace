@@ -1,5 +1,6 @@
 
 import { Button } from '@/components/ui/button';
+import Counter from '@/components/Counter';
 
 const Hero = () => {
   const handleGetAuditClick = () => {
@@ -27,7 +28,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-muted border border-border mb-8 animate-fade-in">
-            <span className="text-sm text-muted-foreground">🚀 Trusted by 50+ Brands</span>
+            <span className="text-sm text-muted-foreground">🚀 Trusted by <Counter end={50} suffix="+" className="inline" /> Brands</span>
           </div>
 
           {/* Main Heading */}
@@ -64,19 +65,27 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">300%</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
+                <Counter end={300} suffix="%" />
+              </div>
               <div className="text-sm text-muted-foreground">Average ROI</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">50+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
+                <Counter end={50} suffix="+" />
+              </div>
               <div className="text-sm text-muted-foreground">Brands Scaled</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">5M+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
+                <Counter end={5} suffix="M+" />
+              </div>
               <div className="text-sm text-muted-foreground">Leads Generated</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">24/7</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
+                <Counter end={24} suffix="/7" />
+              </div>
               <div className="text-sm text-muted-foreground">Support</div>
             </div>
           </div>

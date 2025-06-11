@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from '@/components/ui/card';
+import Counter from '@/components/Counter';
 
 const whyChooseUs = [
   {
@@ -44,11 +45,15 @@ const About = () => {
             {/* Team Stats */}
             <div className="grid grid-cols-2 gap-8 mb-8">
               <div>
-                <div className="text-3xl font-bold text-gradient mb-2">5+</div>
+                <div className="text-3xl font-bold text-gradient mb-2">
+                  <Counter end={5} suffix="+" />
+                </div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-gradient mb-2">15+</div>
+                <div className="text-3xl font-bold text-gradient mb-2">
+                  <Counter end={15} suffix="+" />
+                </div>
                 <div className="text-sm text-muted-foreground">Team Members</div>
               </div>
             </div>
