@@ -5,9 +5,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,14 +18,64 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', business: '', budget: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // Save to Supabase
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          business_type: formData.business,
+          budget: formData.budget,
+          message: formData.message
+        });
+
+      if (dbError) {
+        throw dbError;
+      }
+
+      // Send notification email
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-contact-notification', {
+          body: {
+            name: formData.name,
+            email: formData.email,
+            business: formData.business,
+            budget: formData.budget,
+            message: formData.message
+          }
+        });
+
+        if (emailError) {
+          console.error('Email notification failed:', emailError);
+          // Don't throw here - form submission was successful even if email failed
+        }
+      } catch (emailError) {
+        console.error('Email notification failed:', emailError);
+        // Continue - form submission was successful
+      }
+
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({ name: '', email: '', business: '', budget: '', message: '' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -107,6 +159,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      disabled={isSubmitting}
                       className="bg-background border-border"
                     />
                   </div>
@@ -121,6 +174,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      disabled={isSubmitting}
                       className="bg-background border-border"
                     />
                   </div>
@@ -136,7 +190,8 @@ const Contact = () => {
                       name="business"
                       value={formData.business}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                      disabled={isSubmitting}
+                      className="w-full px-3 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50"
                     >
                       <option value="">Select your industry</option>
                       <option value="ecommerce">E-commerce</option>
@@ -157,7 +212,8 @@ const Contact = () => {
                       name="budget"
                       value={formData.budget}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                      disabled={isSubmitting}
+                      className="w-full px-3 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50"
                     >
                       <option value="">Select budget range</option>
                       <option value="500-1k">$500 - $1K</option>
@@ -179,6 +235,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
+                    disabled={isSubmitting}
                     className="bg-background border-border"
                     placeholder="What are your social media goals? What challenges are you facing?"
                   />
@@ -186,9 +243,10 @@ const Contact = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-accent hover:opacity-90 text-background font-semibold py-3"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-accent hover:opacity-90 text-background font-semibold py-3 disabled:opacity-50"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>
