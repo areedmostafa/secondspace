@@ -30,9 +30,9 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Received contact form data:", { name, email, business, budget });
 
     // Send notification email to business owner
-    // Note: You need to replace "your-domain.com" with your actual verified domain
+    // Using Resend's default verified domain for testing
     const emailResponse = await resend.emails.send({
-      from: "SCALED Contact Form <noreply@your-domain.com>", // Replace with your verified domain
+      from: "SCALED Contact Form <onboarding@resend.dev>",
       to: ["blackkbeard739@gmail.com"],
       subject: `New Contact Form Submission from ${name}`,
       html: `
@@ -71,7 +71,7 @@ const handler = async (req: Request): Promise<Response> => {
     if (emailResponse.data) {
       // Send confirmation email to the user
       const confirmationResponse = await resend.emails.send({
-        from: "SCALED <noreply@your-domain.com>", // Replace with your verified domain
+        from: "SCALED <onboarding@resend.dev>",
         to: [email],
         subject: "Thank you for contacting SCALED!",
         html: `
