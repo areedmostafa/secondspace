@@ -30,6 +30,48 @@ const testimonials = [
     content: "The community they built around our brand is incredible. We went from 5K to 100K followers in 8 months, and more importantly, our revenue tripled.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Rashid Ahmed",
+    title: "Founder, MadKoffee",
+    content: "As a Bangladeshi entrepreneur, I was skeptical about digital marketing. But Scaled's team understood our local market perfectly while giving us global reach. Our coffee brand went viral across South Asia!",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Dr. Fatima Khan",
+    title: "Director, LifeSpring Healthcare",
+    content: "Scaled helped us build trust in healthcare through authentic storytelling. Patient inquiries increased by 300% and we're now the most recognized healthcare brand in Dhaka. Exceptional work!",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Aminul Hasan",
+    title: "Owner, Beans & Aroma",
+    content: "From a small café in Dhanmondi to multiple locations across Bangladesh - Scaled's social media strategy made this possible. They captured the essence of our Bengali hospitality perfectly.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Jennifer Liu",
+    title: "Brand Manager, The Mall",
+    content: "The beauty campaigns Scaled created for us were absolutely stunning. Our Instagram became a destination, not just a store page. Sales through social increased by 520%!",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Sakib Rahman",
+    title: "CEO, Nutrition Depot",
+    content: "Breaking into the Bangladeshi fitness market seemed impossible until we partnered with Scaled. They created culturally relevant content that resonated with our audience. We now have the largest fitness community in Bangladesh!",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Maria Santos",
+    title: "Manager, The Grove Bistro",
+    content: "Our fine dining restaurant was struggling to attract younger customers. Scaled's Instagram strategy transformed us into the most Instagrammable restaurant in the city. Reservations are booked weeks in advance now!",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b9e0?w=100&h=100&fit=crop&crop=face"
   }
 ];
 
