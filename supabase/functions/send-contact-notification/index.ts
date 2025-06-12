@@ -33,7 +33,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Note: You need to replace "your-domain.com" with your actual verified domain
     const emailResponse = await resend.emails.send({
       from: "SCALED Contact Form <noreply@your-domain.com>", // Replace with your verified domain
-      to: ["areedmostafa@gmail.com"],
+      to: ["blackkbeard739@gmail.com"],
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -95,7 +95,7 @@ const handler = async (req: Request): Promise<Response> => {
 
             <div style="margin-top: 30px; padding: 20px; background: #f1f5f9; border-radius: 8px;">
               <p style="margin: 0; color: #64748b; font-size: 14px;">
-                📧 Email: areedmostafa@gmail.com<br>
+                📧 Email: blackkbeard739@gmail.com<br>
                 📱 Phone: 01777970739
               </p>
             </div>
