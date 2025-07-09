@@ -41,7 +41,7 @@ const portfolioItems = [
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
     logo: "/lovable-uploads/c7c25487-d0fd-437f-886c-36bd94c4b8e6.png",
     roi: "+260% ROI",
-    metric: "200% Traffic",
+    metric: "",
     description: "Local restaurant marketing with geo-targeted campaigns"
   },
   {
@@ -61,7 +61,7 @@ const portfolioItems = [
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop",
     logo: "/lovable-uploads/edcbb890-2f46-444c-9e29-df8e2f74b71f.png",
     roi: "+220% ROI",
-    metric: "50K Patients",
+    metric: "18K Patients",
     description: "Healthcare marketing with patient-focused digital strategies"
   }
 ];
