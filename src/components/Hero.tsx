@@ -66,7 +66,7 @@ const Hero = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
-                <Counter end={300} suffix="%" />
+                <Counter end={330} suffix="%" />
               </div>
               <div className="text-sm text-muted-foreground">Average ROI</div>
             </div>
