@@ -9,7 +9,6 @@ const portfolioItems = [
     client: "MadKoffee",
     industry: "luxury",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
-    logo: "/lovable-uploads/4d572232-8151-407e-b663-27889d74856a.png",
     roi: "+450% ROI",
     metric: "2.3M Reach",
     description: "Complete brand transformation with luxury positioning strategy"
@@ -19,7 +18,6 @@ const portfolioItems = [
     client: "Nutrition Depot",
     industry: "fitness",
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
-    logo: "/lovable-uploads/a680ff20-6c40-4339-800d-a8c737b4f62e.png",
     roi: "+390% ROI",
     metric: "100K Members",
     description: "Community-driven fitness brand growth strategy"
@@ -29,7 +27,6 @@ const portfolioItems = [
     client: "The Mall",
     industry: "beauty",
     image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&h=300&fit=crop",
-    logo: "/lovable-uploads/5d9e915a-0e23-45bc-a328-5309f5140dfb.png",
     roi: "+410% ROI",
     metric: "5M Views",
     description: "Viral beauty content strategy with UGC campaigns"
@@ -39,7 +36,6 @@ const portfolioItems = [
     client: "Beans & Aroma",
     industry: "food",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
-    logo: "/lovable-uploads/c7c25487-d0fd-437f-886c-36bd94c4b8e6.png",
     roi: "+260% ROI",
     metric: "",
     description: "Local restaurant marketing with geo-targeted campaigns"
@@ -49,7 +45,6 @@ const portfolioItems = [
     client: "The Grove Bistro",
     industry: "food",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
-    logo: "/lovable-uploads/bbce0636-07b5-4475-beca-f1295cdc1d1a.png",
     roi: "+340% ROI",
     metric: "180% Sales",
     description: "Upscale dining experience marketing with premium positioning"
@@ -59,7 +54,6 @@ const portfolioItems = [
     client: "LifeSpring",
     industry: "healthcare",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop",
-    logo: "/lovable-uploads/edcbb890-2f46-444c-9e29-df8e2f74b71f.png",
     roi: "+220% ROI",
     metric: "18K Patients",
     description: "Healthcare marketing with patient-focused digital strategies"
@@ -105,14 +99,8 @@ const Portfolio = () => {
           {filteredItems.map((item) => (
             <Card key={item.id} className="bg-card border-border hover-glow group overflow-hidden">
               <div className="relative overflow-hidden">
-                <div 
-                  className="w-full h-48 bg-contain bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110 bg-muted"
-                  style={{
-                    backgroundImage: `url(${item.logo})`,
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">
-                  <div className="text-center p-4">
+                <div className="w-full h-48 bg-muted flex items-center justify-center">
+                  <div className="text-center">
                     <div className="text-2xl font-bold text-primary mb-1">{item.roi}</div>
                     <div className="text-sm text-muted-foreground">{item.metric}</div>
                   </div>
