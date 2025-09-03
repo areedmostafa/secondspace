@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 h-16 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-0">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -23,7 +23,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" 
               alt="Scaled Logo" 
-              className="h-10 w-auto transition-all duration-300" 
+              className="h-20 w-auto transition-all duration-300 hover:scale-105" 
             />
           </div>
 
