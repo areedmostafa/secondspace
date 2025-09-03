@@ -56,8 +56,8 @@ const CaseStudies = () => {
                 <div className="mb-12 flex justify-center">
                   <div className="relative overflow-hidden rounded-lg shadow-2xl">
                     <img 
-                      src="/lovable-uploads/6bc2f475-130f-4d78-b9ca-747aeecc5067.png" 
-                      alt="FitLife UK Instagram Campaign - Fitness influencers showcase" 
+                      src="/lovable-uploads/b779cc02-4b89-424f-98c9-9a336f8ca872.png" 
+                      alt="FitLife UK brand logo - Feel Fit. Love Life." 
                       className="w-full max-w-md h-auto object-cover"
                     />
                   </div>
