@@ -38,8 +38,10 @@ const CaseStudies = () => {
             </p>
           </div>
 
-          {/* FitLife UK Case Study */}
-          <div className="max-w-4xl mx-auto">
+          {/* Case Studies Grid */}
+          <div className="max-w-6xl mx-auto space-y-16">
+            
+            {/* FitLife UK Case Study */}
             <Card className="bg-card border-border hover-glow">
               <CardContent className="p-8 md:p-12">
                 {/* Case Study Header */}
@@ -84,7 +86,6 @@ const CaseStudies = () => {
 
                 {/* Case Study Sections */}
                 <div className="space-y-12">
-                  {/* The Challenge */}
                   <section>
                     <h4 className="text-2xl font-bold mb-4 text-primary">The Challenge</h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
@@ -92,7 +93,6 @@ const CaseStudies = () => {
                     </p>
                   </section>
 
-                  {/* Our Strategy */}
                   <section>
                     <h4 className="text-2xl font-bold mb-4 text-secondary">Our Strategy</h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
@@ -100,7 +100,6 @@ const CaseStudies = () => {
                     </p>
                   </section>
 
-                  {/* Execution */}
                   <section>
                     <h4 className="text-2xl font-bold mb-4 text-primary">Execution</h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
@@ -109,7 +108,6 @@ const CaseStudies = () => {
                     </p>
                   </section>
 
-                  {/* Results */}
                   <section>
                     <h4 className="text-2xl font-bold mb-4 text-gradient">Results</h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
@@ -118,19 +116,100 @@ const CaseStudies = () => {
                     </p>
                   </section>
                 </div>
+              </CardContent>
+            </Card>
 
-                {/* CTA */}
-                <div className="text-center mt-16 pt-8 border-t border-border">
-                  <h5 className="text-xl font-semibold mb-4">Ready to achieve similar results?</h5>
-                  <Button 
-                    onClick={() => navigate('/#contact')}
-                    className="bg-gradient-accent hover:opacity-90 text-background font-semibold px-8 py-3"
-                  >
-                    Get Your Free Audit
-                  </Button>
+            {/* GlowSkin UK Case Study */}
+            <Card className="bg-card border-border hover-glow">
+              <CardContent className="p-8 md:p-12">
+                {/* Case Study Header */}
+                <div className="text-center mb-12">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+                    GlowSkin UK
+                  </h3>
+                  <p className="text-xl text-muted-foreground">
+                    Skincare and Beauty Brand
+                  </p>
+                </div>
+
+                {/* Featured Image */}
+                <div className="mb-12 flex justify-center">
+                  <div className="relative overflow-hidden rounded-lg shadow-2xl">
+                    <img 
+                      src="/lovable-uploads/5f417615-a837-4a82-b223-20a7d82d2020.png" 
+                      alt="GlowSkin UK brand logo" 
+                      className="w-full max-w-md h-auto object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Results Overview */}
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                  <div className="text-center p-6 bg-muted/20 rounded-lg">
+                    <Users className="h-8 w-8 text-primary mx-auto mb-3" />
+                    <div className="text-2xl font-bold text-primary mb-1">18,000</div>
+                    <div className="text-sm text-muted-foreground">New Followers</div>
+                  </div>
+                  <div className="text-center p-6 bg-muted/20 rounded-lg">
+                    <TrendingUp className="h-8 w-8 text-secondary mx-auto mb-3" />
+                    <div className="text-2xl font-bold text-secondary mb-1">52%</div>
+                    <div className="text-sm text-muted-foreground">Engagement Increase</div>
+                  </div>
+                  <div className="text-center p-6 bg-muted/20 rounded-lg">
+                    <MousePointer className="h-8 w-8 text-primary mx-auto mb-3" />
+                    <div className="text-2xl font-bold text-primary mb-1">23%</div>
+                    <div className="text-sm text-muted-foreground">Sales Boost</div>
+                  </div>
+                </div>
+
+                {/* Case Study Sections */}
+                <div className="space-y-12">
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-primary">The Challenge</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      GlowSkin UK, a premium skincare brand in the UK, was struggling with low engagement and stagnant sales through Instagram. 
+                      Despite having a decent following, their content wasn't resonating with the target audience of young professionals and beauty enthusiasts.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-secondary">Our Strategy</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      We built a social media strategy that emphasized authenticity and education, using influencer partnerships, 
+                      consistent posting, and ad funnels to boost brand trust and drive conversions.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-primary">Execution</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      We created a mix of engaging Reels featuring skincare routines and tutorials, branded content grids with a consistent aesthetic, 
+                      influencer collaborations with UK-based micro-influencers, and story ads highlighting customer testimonials and limited-time offers.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-gradient">Results</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Through our campaign, GlowSkin UK gained 18,000 new followers in 90 days, increased engagement rate by 52%, 
+                      achieved a 23% boost in sales from Instagram ads, and collected 500+ pieces of UGC under the hashtag #GlowWithGlowSkin.
+                    </p>
+                  </section>
                 </div>
               </CardContent>
             </Card>
+
+            {/* CTA */}
+            <div className="text-center mt-16 pt-8 border-t border-border">
+              <h5 className="text-xl font-semibold mb-4">Ready to achieve similar results?</h5>
+              <Button 
+                onClick={() => navigate('/#contact')}
+                className="bg-gradient-accent hover:opacity-90 text-background font-semibold px-8 py-3"
+              >
+                Get Your Free Audit
+              </Button>
+            </div>
+
           </div>
         </div>
       </main>
