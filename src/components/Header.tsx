@@ -23,7 +23,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" 
               alt="Scaled Logo" 
-              className="h-20 w-auto transition-all duration-300 hover:scale-105" 
+              className="h-14 w-auto transition-all duration-300 hover:scale-105" 
             />
           </div>
 
