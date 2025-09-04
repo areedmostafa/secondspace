@@ -21,7 +21,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/e694c243-2578-4dc5-b849-18bb1c081ea9.png" 
+              src="/lovable-uploads/723ded51-b945-413b-b5ed-ffc4b2fa1e2c.png" 
               alt="Scaled Logo" 
               className="h-20 w-auto transition-all duration-300 hover:scale-105" 
             />
