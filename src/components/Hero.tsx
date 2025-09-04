@@ -18,7 +18,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-dark relative overflow-hidden pt-24 md:pt-20">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-dark relative overflow-hidden pt-24 md:pt-20 cinema-grain">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-30"></div>
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
