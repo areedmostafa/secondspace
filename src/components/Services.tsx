@@ -3,21 +3,21 @@ import { Card, CardContent } from '@/components/ui/card';
 const services = [
   {
     title: "Social Media Management",
-    description: "Complete social media strategy, content creation, and community management across all platforms.",
+    description: "Complete social media strategy, content creation, and community management across Instagram, TikTok, YouTube, LinkedIn, and Meta platforms.",
     icon: "📱",
-    features: ["Content Strategy", "Daily Posting", "Community Management", "Brand Voice Development"]
+    features: ["Cross-Platform Strategy", "Daily Content Creation", "Community Engagement", "Brand Voice Development"]
   },
   {
     title: "Paid Advertising",
-    description: "ROI-focused Meta and TikTok advertising campaigns that convert browsers into buyers.",
+    description: "High-ROI Meta Ads, TikTok Ads, and retargeting campaigns that convert your audience into customers and maximize your advertising spend.",
     icon: "🎯",
-    features: ["Meta Ads", "TikTok Ads", "Retargeting", "Creative Testing"]
+    features: ["Meta Advertising", "TikTok Campaigns", "Advanced Retargeting", "A/B Creative Testing"]
   },
   {
     title: "Web Development",
-    description: "Custom website development and optimization to create powerful digital experiences that convert.",
+    description: "Custom website development, e-commerce solutions, and performance optimization that creates seamless user experiences and drives conversions.",
     icon: "💻",
-    features: ["Custom Websites", "E-commerce Solutions", "Mobile Optimization", "Performance Tuning"]
+    features: ["Custom Web Development", "E-commerce Platforms", "Mobile-First Design", "Speed & SEO Optimization"]
   },
   {
     title: "Video Editing",
@@ -45,10 +45,10 @@ const Services = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="text-gradient">Services</span>
+            Complete Digital <span className="text-gradient">Marketing Solutions</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive social media solutions designed to scale your brand and drive measurable results.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            As your global digital growth partner, we offer comprehensive services from social media management and paid advertising to web development, video editing, graphics design, and strategic consulting—everything you need to dominate your market.
           </p>
         </div>
 

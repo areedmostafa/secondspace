@@ -33,14 +33,14 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight animate-fade-in">
-            Scale Your Brand's Growth with{' '}
-            <span className="text-gradient">Data-Driven</span>{' '}
-            Social Media Marketing
+            Your Global Digital Growth{' '}
+            <span className="text-gradient">Partner</span>{' '}
+            for Complete Brand Success
           </h1>
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
-            We help brands dominate social media with bespoke strategies that drive engagement, leads, and sales.
+            From social media management and paid ads to web development and creative design—we deliver end-to-end digital marketing solutions that drive engagement, leads, and sales globally.
           </p>
 
           {/* CTA Buttons */}

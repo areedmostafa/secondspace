@@ -92,10 +92,10 @@ const Contact = () => {
           {/* Left Column - Contact Info */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to <span className="text-gradient">Scale</span>?
+              Ready to <span className="text-gradient">Start Growing</span>?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Let's discuss how we can help you dominate social media and drive real business results.
+              Let's discuss how our comprehensive digital marketing solutions can transform your brand's growth trajectory. From social media to web development—we've got you covered.
             </p>
 
             {/* Contact Methods */}

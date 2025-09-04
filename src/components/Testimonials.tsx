@@ -5,62 +5,62 @@ import { Card, CardContent } from '@/components/ui/card';
 const testimonials = [
   {
     name: "Sarah Chen",
-    title: "CEO, LuxuryFashion Co.",
-    content: "Scaled transformed our social media presence completely. Our engagement increased by 400% and we're seeing direct sales from social for the first time.",
+    title: "CEO, LuxuryFashion UK",
+    content: "Scaled transformed our entire digital presence. Our social media engagement increased by 400% and we're seeing direct sales conversions from every platform. Their full-service approach saved us from managing multiple agencies.",
     rating: 5
   },
   {
     name: "Michael Rodriguez",
     title: "Founder, TechStart SaaS",
-    content: "The ROI we've seen from our social media campaigns is incredible. Scaled's data-driven approach helped us scale from 0 to 50K leads in 6 months.",
+    content: "The ROI we've achieved is incredible. Scaled's integrated approach—from social media to web development—helped us scale from 0 to 50K leads in 6 months. They're true growth partners.",
     rating: 5
   },
   {
     name: "Emma Thompson",
     title: "Marketing Director, EcoCommerce",
-    content: "Working with Scaled has been game-changing. Their creative team produces content that our audience actually engages with, not just scrolls past.",
+    content: "Working with Scaled has been game-changing. Their creative team produces scroll-stopping content while their strategic consulting keeps us ahead of trends. Revenue increased 300% in our first year.",
+    rating: 5
+  },
+  {
+    name: "James Wilson",
+    title: "Owner, FitnessPro London",
+    content: "The global reach they provided was exactly what we needed. From social media management to paid ads, they helped us expand from the UK to international markets. Followers grew from 5K to 150K.",
+    rating: 5
+  },
+  {
+    name: "Sophie Laurent",
+    title: "Brand Director, Belle Cosmetics",
+    content: "As a French beauty brand entering the US market, Scaled's cultural expertise was invaluable. Their video content and web development work positioned us perfectly for international success.",
     rating: 5
   },
   {
     name: "David Park",
-    title: "Owner, FitnessPro",
-    content: "The community they built around our brand is incredible. We went from 5K to 100K followers in 8 months, and more importantly, our revenue tripled.",
-    rating: 5
-  },
-  {
-    name: "Rashid Ahmed",
-    title: "Founder, MadKoffee",
-    content: "As a Bangladeshi entrepreneur, I was skeptical about digital marketing. But Scaled's team understood our local market perfectly while giving us global reach. Our coffee brand went viral across South Asia!",
-    rating: 5
-  },
-  {
-    name: "Dr. Fatima Khan",
-    title: "Director, LifeSpring Healthcare",
-    content: "Scaled helped us build trust in healthcare through authentic storytelling. Patient inquiries increased by 300% and we're now the most recognized healthcare brand in Dhaka. Exceptional work!",
-    rating: 5
-  },
-  {
-    name: "Aminul Hasan",
-    title: "Owner, Beans & Aroma",
-    content: "From a small café in Dhanmondi to multiple locations across Bangladesh - Scaled's social media strategy made this possible. They captured the essence of our Bengali hospitality perfectly.",
-    rating: 5
-  },
-  {
-    name: "Jennifer Liu",
-    title: "Brand Manager, The Mall",
-    content: "The beauty campaigns Scaled created for us were absolutely stunning. Our Instagram became a destination, not just a store page. Sales through social increased by 520%!",
-    rating: 5
-  },
-  {
-    name: "Sakib Rahman",
-    title: "CEO, Nutrition Depot",
-    content: "Breaking into the Bangladeshi fitness market seemed impossible until we partnered with Scaled. They created culturally relevant content that resonated with our audience. We now have the largest fitness community in Bangladesh!",
+    title: "CEO, Urban Fitness Network",
+    content: "Scaled's comprehensive approach is unmatched. From strategy consulting to creative execution, they've built our brand into a global fitness community. ROI exceeded 500% in our first 18 months.",
     rating: 5
   },
   {
     name: "Maria Santos",
-    title: "Manager, The Grove Bistro",
-    content: "Our fine dining restaurant was struggling to attract younger customers. Scaled's Instagram strategy transformed us into the most Instagrammable restaurant in the city. Reservations are booked weeks in advance now!",
+    title: "Founder, Organic Wellness",
+    content: "Their expertise in both social media marketing and e-commerce development was exactly what our wellness brand needed. International sales now account for 60% of our revenue.",
+    rating: 5
+  },
+  {
+    name: "Alessandro Romano",
+    title: "Owner, Milano Fashion House",
+    content: "Scaling from Italy to global markets seemed impossible until we partnered with Scaled. Their understanding of luxury branding and international social media trends is exceptional.",
+    rating: 5
+  },
+  {
+    name: "Lisa Anderson",
+    title: "Marketing Director, TechFlow Solutions",
+    content: "The integrated approach—combining social media marketing, web development, and strategic consulting—delivered results we never thought possible. B2B lead generation increased by 400%.",
+    rating: 5
+  },
+  {
+    name: "Carlos Mendoza",
+    title: "CEO, Global Nutrition",
+    content: "Scaled helped us dominate the European wellness market through strategic social media campaigns and stunning web development. Their full-service approach is truly world-class.",
     rating: 5
   }
 ];
@@ -83,10 +83,10 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            What Our <span className="text-gradient">Clients Say</span>
+            Client <span className="text-gradient">Success Stories</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with Scaled.
+            Discover how brands worldwide achieve exceptional growth through our comprehensive digital marketing solutions.
           </p>
         </div>
 

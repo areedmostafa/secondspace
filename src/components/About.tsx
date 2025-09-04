@@ -4,23 +4,23 @@ import Counter from '@/components/Counter';
 
 const whyChooseUs = [
   {
-    title: "Data-Backed Strategies",
-    description: "Every decision is driven by analytics and performance metrics",
-    icon: "📊"
+    title: "Global Reach, Local Expertise",
+    description: "Serving clients worldwide with deep understanding of local markets and global trends",
+    icon: "🌍"
   },
   {
-    title: "Transparent Reporting",
-    description: "Real-time access to campaign performance and ROI tracking",
-    icon: "📋"
+    title: "Full-Service Solutions",
+    description: "Complete digital marketing ecosystem from strategy to execution under one roof",
+    icon: "⚡"
   },
   {
-    title: "Industry Expertise",
-    description: "Specialized knowledge across luxury, SaaS, e-commerce, and more",
-    icon: "🎯"
+    title: "Proven ROI Results",
+    description: "Average 330% ROI with transparent reporting and real-time performance tracking",
+    icon: "📈"
   },
   {
-    title: "Creative Excellence",
-    description: "Award-winning creative team producing scroll-stopping content",
+    title: "Creative & Technical Excellence",
+    description: "Award-winning creative team combined with cutting-edge development expertise",
     icon: "🎨"
   }
 ];
@@ -33,13 +33,13 @@ const About = () => {
           {/* Left Column - Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Why Choose <span className="text-gradient">Scaled</span>?
+              Your Trusted Global <span className="text-gradient">Growth Partner</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              We're not just another social media agency. We're growth partners who understand that every brand is unique and deserves a tailored approach to social media success.
+              Scaled isn't just a social media marketing agency—we're your complete digital growth partner. From social media management to web development, video production to strategic consulting, we deliver end-to-end solutions that transform brands worldwide.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              Our team combines creative excellence with data-driven strategies to deliver results that matter to your bottom line. We've helped over 50 brands achieve exponential growth through social media.
+              With clients across the UK, US, Europe, and beyond, our global team combines creative excellence with data-driven strategies to deliver measurable results. We've helped over 50 brands achieve exponential growth through comprehensive digital marketing solutions.
             </p>
             
             {/* Team Stats */}
@@ -78,9 +78,9 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-semibold mb-6">Our Mission</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              "To empower brands with social media strategies that don't just build followers, but build businesses. 
-              We believe in the power of authentic connections, creative storytelling, and data-driven optimization 
-              to transform social media from a cost center into a profit engine."
+              "To be the global growth partner that transforms businesses through comprehensive digital marketing solutions. 
+              We don't just build followers—we build businesses. From social media and paid ads to web development and strategic consulting, 
+              we deliver integrated solutions that turn digital presence into measurable business growth worldwide."
             </p>
           </div>
         </div>

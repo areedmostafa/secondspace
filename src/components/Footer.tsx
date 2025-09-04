@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <div className="text-2xl font-bold text-gradient mb-4">SCALED</div>
             <p className="text-muted-foreground mb-4">
-              Premium social media marketing agency helping brands scale their digital presence.
+              Global digital growth partner delivering comprehensive marketing solutions from social media and paid ads to web development and strategic consulting.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">📷</a>
@@ -21,10 +21,12 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Social Media Management</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Paid Advertising</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Web Development</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Video Editing</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Social Media Marketing</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Paid Advertising</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Web Development</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Video Production</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Graphics Design</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Strategy Consulting</a></li>
             </ul>
           </div>
 
@@ -42,7 +44,7 @@ const Footer = () => {
           {/* Newsletter */}
           <div>
             <h3 className="font-semibold mb-4">Stay Updated</h3>
-            <p className="text-muted-foreground mb-4">Get the latest social media insights and tips.</p>
+            <p className="text-muted-foreground mb-4">Get the latest digital marketing insights and growth strategies.</p>
             <div className="flex">
               <input 
                 type="email" 
