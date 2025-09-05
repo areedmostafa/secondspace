@@ -247,7 +247,7 @@ const CaseStudies = () => {
                   <section>
                     <h4 className="text-2xl font-bold mb-4 text-primary">The Challenge</h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                      Mad Koffee, a trendy clothing and lifestyle brand, had built a decent online presence with 57,000 Instagram followers. 
+                      Mad Koffee, a trendy clothing and lifestyle brand, had built a decent online presence with 57,000 Facebook followers. 
                       However, growth had slowed, engagement was inconsistent, and sales through social channels weren't scaling as fast as the brand's ambitions.
                     </p>
                   </section>
