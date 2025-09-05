@@ -199,6 +199,88 @@ const CaseStudies = () => {
               </CardContent>
             </Card>
 
+            {/* Mad Koffee Case Study */}
+            <Card className="bg-card border-border hover-glow">
+              <CardContent className="p-8 md:p-12">
+                {/* Case Study Header */}
+                <div className="text-center mb-12">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+                    Mad Koffee
+                  </h3>
+                  <p className="text-xl text-muted-foreground">
+                    Clothing & Lifestyle Brand
+                  </p>
+                </div>
+
+                {/* Featured Image */}
+                <div className="mb-12 flex justify-center">
+                  <div className="relative overflow-hidden rounded-lg shadow-2xl">
+                    <img 
+                      src="/lovable-uploads/774db8b6-4295-40f1-87df-588af53265d8.png" 
+                      alt="Mad Koffee Facebook page growth from 57K to 124K followers" 
+                      className="w-full max-w-2xl h-auto object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Results Overview */}
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                  <div className="text-center p-6 bg-muted/20 rounded-lg">
+                    <Users className="h-8 w-8 text-primary mx-auto mb-3" />
+                    <div className="text-2xl font-bold text-primary mb-1">+67,000</div>
+                    <div className="text-sm text-muted-foreground">New Followers (+117%)</div>
+                  </div>
+                  <div className="text-center p-6 bg-muted/20 rounded-lg">
+                    <TrendingUp className="h-8 w-8 text-secondary mx-auto mb-3" />
+                    <div className="text-2xl font-bold text-secondary mb-1">70%</div>
+                    <div className="text-sm text-muted-foreground">Engagement Increase</div>
+                  </div>
+                  <div className="text-center p-6 bg-muted/20 rounded-lg">
+                    <MousePointer className="h-8 w-8 text-primary mx-auto mb-3" />
+                    <div className="text-2xl font-bold text-primary mb-1">55%</div>
+                    <div className="text-sm text-muted-foreground">Social-Driven Sales Growth</div>
+                  </div>
+                </div>
+
+                {/* Case Study Sections */}
+                <div className="space-y-12">
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-primary">The Challenge</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Mad Koffee, a trendy clothing and lifestyle brand, had built a decent online presence with 57,000 Instagram followers. 
+                      However, growth had slowed, engagement was inconsistent, and sales through social channels weren't scaling as fast as the brand's ambitions.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-secondary">Our Strategy</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Scaled created a 12-month growth strategy focused on turning Mad Koffee's Facebook into both a fashion inspiration hub and a sales engine. 
+                      We combined high-quality lifestyle and product content (Reels, lookbooks, behind-the-scenes), influencer collaborations with BD and global fashion creators, 
+                      paid ads optimized for both reach and conversions, and consistent engagement campaigns to strengthen community loyalty.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-primary">Execution</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      We built a monthly content calendar showcasing new collections, styling tips, and seasonal campaigns. We partnered with micro and mid-tier influencers 
+                      in the fashion space to create authentic UGC, ran retargeting ads for abandoned carts and lookalike audiences, and created limited-edition drops 
+                      promoted through countdown stories and exclusive Reels.
+                    </p>
+                  </section>
+
+                  <section>
+                    <h4 className="text-2xl font-bold mb-4 text-gradient">Results</h4>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Over 12 months, Scaled helped Mad Koffee achieve remarkable growth: follower growth from 57,000 → 124,000 (+117%), 
+                      engagement rate boosted by 70%, social-driven sales increased by 55%, and ROI on paid campaigns exceeded 310%.
+                    </p>
+                  </section>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* CTA */}
             <div className="text-center mt-16 pt-8 border-t border-border">
               <h5 className="text-xl font-semibold mb-4">Ready to achieve similar results?</h5>
