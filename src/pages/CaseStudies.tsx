@@ -255,7 +255,7 @@ const CaseStudies = () => {
                   <section>
                     <h4 className="text-2xl font-bold mb-4 text-secondary">Our Strategy</h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                      Scaled created a 12-month growth strategy focused on turning Mad Koffee's Facebook into both a fashion inspiration hub and a sales engine. 
+                      SecondSpace created a 12-month growth strategy focused on turning Mad Koffee's Facebook into both a fashion inspiration hub and a sales engine. 
                       We combined high-quality lifestyle and product content (Reels, lookbooks, behind-the-scenes), influencer collaborations with BD and global fashion creators, 
                       paid ads optimized for both reach and conversions, and consistent engagement campaigns to strengthen community loyalty.
                     </p>
@@ -273,7 +273,7 @@ const CaseStudies = () => {
                   <section>
                     <h4 className="text-2xl font-bold mb-4 text-gradient">Results</h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                      Over 12 months, Scaled helped Mad Koffee achieve remarkable growth: follower growth from 57,000 → 124,000 (+117%), 
+                      Over 12 months, SecondSpace helped Mad Koffee achieve remarkable growth: follower growth from 57,000 → 124,000 (+117%), 
                       engagement rate boosted by 70%, social-driven sales increased by 55%, and ROI on paid campaigns exceeded 310%.
                     </p>
                   </section>

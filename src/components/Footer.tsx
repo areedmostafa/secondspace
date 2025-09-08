@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="text-2xl font-bold text-gradient mb-4">SCALED</div>
+            <div className="text-2xl font-bold text-gradient mb-4">SECONDSPACE</div>
             <p className="text-muted-foreground mb-4">
               Global digital growth partner delivering comprehensive marketing solutions from social media and paid ads to web development and strategic consulting.
             </p>
@@ -61,7 +61,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 Scaled Agency. All rights reserved.
+            © 2024 SecondSpace Agency. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Privacy Policy</a>

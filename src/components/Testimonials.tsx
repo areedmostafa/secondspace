@@ -6,19 +6,19 @@ const testimonials = [
   {
     name: "Sarah Chen",
     title: "CEO, LuxuryFashion UK",
-    content: "Scaled transformed our entire digital presence. Our social media engagement increased by 400% and we're seeing direct sales conversions from every platform. Their full-service approach saved us from managing multiple agencies.",
+    content: "SecondSpace transformed our entire digital presence. Our social media engagement increased by 400% and we're seeing direct sales conversions from every platform. Their full-service approach saved us from managing multiple agencies.",
     rating: 5
   },
   {
     name: "Michael Rodriguez",
     title: "Founder, TechStart SaaS",
-    content: "The ROI we've achieved is incredible. Scaled's integrated approach—from social media to web development—helped us scale from 0 to 50K leads in 6 months. They're true growth partners.",
+    content: "The ROI we've achieved is incredible. SecondSpace's integrated approach—from social media to web development—helped us scale from 0 to 50K leads in 6 months. They're true growth partners.",
     rating: 5
   },
   {
     name: "Emma Thompson",
     title: "Marketing Director, EcoCommerce",
-    content: "Working with Scaled has been game-changing. Their creative team produces scroll-stopping content while their strategic consulting keeps us ahead of trends. Revenue increased 300% in our first year.",
+    content: "Working with SecondSpace has been game-changing. Their creative team produces scroll-stopping content while their strategic consulting keeps us ahead of trends. Revenue increased 300% in our first year.",
     rating: 5
   },
   {
@@ -30,13 +30,13 @@ const testimonials = [
   {
     name: "Sophie Laurent",
     title: "Brand Director, Belle Cosmetics",
-    content: "As a French beauty brand entering the US market, Scaled's cultural expertise was invaluable. Their video content and web development work positioned us perfectly for international success.",
+    content: "As a French beauty brand entering the US market, SecondSpace's cultural expertise was invaluable. Their video content and web development work positioned us perfectly for international success.",
     rating: 5
   },
   {
     name: "David Park",
     title: "CEO, Urban Fitness Network",
-    content: "Scaled's comprehensive approach is unmatched. From strategy consulting to creative execution, they've built our brand into a global fitness community. ROI exceeded 500% in our first 18 months.",
+    content: "SecondSpace's comprehensive approach is unmatched. From strategy consulting to creative execution, they've built our brand into a global fitness community. ROI exceeded 500% in our first 18 months.",
     rating: 5
   },
   {
@@ -48,7 +48,7 @@ const testimonials = [
   {
     name: "Alessandro Romano",
     title: "Owner, Milano Fashion House",
-    content: "Scaling from Italy to global markets seemed impossible until we partnered with Scaled. Their understanding of luxury branding and international social media trends is exceptional.",
+    content: "Scaling from Italy to global markets seemed impossible until we partnered with SecondSpace. Their understanding of luxury branding and international social media trends is exceptional.",
     rating: 5
   },
   {
@@ -60,7 +60,7 @@ const testimonials = [
   {
     name: "Carlos Mendoza",
     title: "CEO, Global Nutrition",
-    content: "Scaled helped us dominate the European wellness market through strategic social media campaigns and stunning web development. Their full-service approach is truly world-class.",
+    content: "SecondSpace helped us dominate the European wellness market through strategic social media campaigns and stunning web development. Their full-service approach is truly world-class.",
     rating: 5
   }
 ];

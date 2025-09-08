@@ -74,7 +74,7 @@ const Hero = () => {
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
                 <Counter end={50} suffix="+" />
               </div>
-              <div className="text-sm text-muted-foreground">Brands Scaled</div>
+              <div className="text-sm text-muted-foreground">Brands Grown</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">

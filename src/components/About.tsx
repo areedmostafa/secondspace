@@ -36,7 +36,7 @@ const About = () => {
               Your Trusted Global <span className="text-gradient">Growth Partner</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Scaled isn't just a social media marketing agency—we're your complete digital growth partner. From social media management to web development, video production to strategic consulting, we deliver end-to-end solutions that transform brands worldwide.
+              SecondSpace isn't just a social media marketing agency—we're your complete digital growth partner. From social media management to web development, video production to strategic consulting, we deliver end-to-end solutions that transform brands worldwide.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
               With clients across the UK, US, Europe, and beyond, our global team combines creative excellence with data-driven strategies to deliver measurable results. We've helped over 50 brands achieve exponential growth through comprehensive digital marketing solutions.
