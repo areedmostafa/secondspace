@@ -1,17 +1,33 @@
 
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSectionNavigation = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   const handleGetAuditClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+    handleSectionNavigation('contact');
   };
 
   return (
@@ -29,21 +45,21 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-foreground hover:text-primary transition-colors">
+            <button onClick={() => handleSectionNavigation('services')} className="text-foreground hover:text-primary transition-colors">
               Services
-            </a>
+            </button>
             <a href="/portfolio" className="text-foreground hover:text-primary transition-colors">
               Portfolio
             </a>
             <a href="/case-studies" className="text-foreground hover:text-primary transition-colors">
               Case Studies
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <button onClick={() => handleSectionNavigation('about')} className="text-foreground hover:text-primary transition-colors">
               About
-            </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => handleSectionNavigation('contact')} className="text-foreground hover:text-primary transition-colors">
               Contact
-            </a>
+            </button>
           </nav>
 
           {/* CTA Button */}
@@ -65,21 +81,21 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">
+              <button onClick={() => handleSectionNavigation('services')} className="text-foreground hover:text-primary transition-colors text-left">
                 Services
-              </a>
+              </button>
               <a href="/portfolio" className="text-foreground hover:text-primary transition-colors">
                 Portfolio
               </a>
               <a href="/case-studies" className="text-foreground hover:text-primary transition-colors">
                 Case Studies
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
+              <button onClick={() => handleSectionNavigation('about')} className="text-foreground hover:text-primary transition-colors text-left">
                 About
-              </a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+              </button>
+              <button onClick={() => handleSectionNavigation('contact')} className="text-foreground hover:text-primary transition-colors text-left">
                 Contact
-              </a>
+              </button>
               <Button onClick={handleGetAuditClick} className="bg-gradient-accent hover:opacity-90 text-background font-semibold w-full mt-4">
                 Get Free Audit
               </Button>
