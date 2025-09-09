@@ -27,7 +27,7 @@ const MotionGraphics = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {videoLinks.map((url, index) => (
               <VideoPlaceholder key={index} url={url} index={index} />
             ))}
