@@ -1,0 +1,61 @@
+import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import VideoPlaceholder from '@/components/VideoPlaceholder';
+
+const ShortFormVideos = () => {
+  const videoLinks = [
+    'https://drive.google.com/file/d/19UVPj2mEXl-Yjrokl8XfoTnvDQpB_7O2/view?usp=drive_link',
+    'https://drive.google.com/file/d/18BBHXNPl6TGkCpZS6w6oGBu68qPbXaNI/view?usp=drive_link',
+    'https://drive.google.com/file/d/17rVFZkYUbhc8yNE_sWGHsdV1DEKZGqp7/view?usp=drive_link',
+    'https://drive.google.com/file/d/1o_ujh_zC7h1x5x8V8u4x4ZwLyzneTv7I/view?usp=drive_link',
+    'https://drive.google.com/file/d/13Enmhj89rkEB4a0D0U050xEtX3uJLZAM/view?usp=drive_link',
+    'https://drive.google.com/file/d/1Qq1agUUlF6DWaDr0gouHwiSPL297VxOz/view?usp=drive_link',
+    'https://drive.google.com/file/d/1MyeHFxsvYB9z0Y1jfxGDgo5-DaTY_1oG/view?usp=drive_link',
+    'https://drive.google.com/file/d/1_4D07WXZOQ65bglea_cuit-kR6gq8iYe/view?usp=drive_link',
+    'https://drive.google.com/file/d/1Nhy1s5gM4uUl3HBdSASOalCOTgXLYCPl/view?usp=drive_link',
+    'https://drive.google.com/file/d/1qHtvIq1m_G4875zMBQWxuhlFkE20i83w/view?usp=drive_link'
+  ];
+
+  return (
+    <div className="min-h-screen bg-black">
+      <Header />
+      <main className="pt-20">
+        <div className="container mx-auto px-6 py-16">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Short Form Contents
+            </h1>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              A curated collection of our Short Form Contents works.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {videoLinks.map((url, index) => (
+              <VideoPlaceholder key={index} url={url} index={index} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12 space-x-6">
+            <Link 
+              to="/portfolio/videos" 
+              className="text-primary hover:text-secondary transition-colors font-medium"
+            >
+              ← Back to Videos
+            </Link>
+            <Link 
+              to="/portfolio" 
+              className="text-gray-400 hover:text-white transition-colors font-medium"
+            >
+              Portfolio Home
+            </Link>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default ShortFormVideos;
