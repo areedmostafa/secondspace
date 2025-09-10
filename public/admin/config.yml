@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image"}
+      - {label: "Meta Title", name: "metaTitle", widget: "string"}
+      - {label: "Meta Description", name: "metaDescription", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "videos"
+    label: "Portfolio Videos"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Video URL", name: "videoUrl", widget: "string", hint: "YouTube or Vimeo URL"}
+      - {label: "Category", name: "category", widget: "select", options: ["short-form", "promo", "motion-graphics"]}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Publish Date", name: "date", widget: "datetime"}

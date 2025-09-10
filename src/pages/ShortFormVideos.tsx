@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import VideoPlaceholder from '@/components/VideoPlaceholder';
+import { useCMSVideos, getVideoEmbedUrl } from '@/hooks/useCMSContent';
 
 const ShortFormVideos = () => {
-  const videoLinks = [
+  const { videos, loading } = useCMSVideos('short-form');
+
+  // Fallback videos if CMS is empty (using existing URLs)
+  const fallbackVideos = [
     'https://drive.google.com/file/d/19UVPj2mEXl-Yjrokl8XfoTnvDQpB_7O2/view?usp=drive_link',
     'https://drive.google.com/file/d/18BBHXNPl6TGkCpZS6w6oGBu68qPbXaNI/view?usp=drive_link',
     'https://drive.google.com/file/d/17rVFZkYUbhc8yNE_sWGHsdV1DEKZGqp7/view?usp=drive_link',
@@ -16,6 +20,14 @@ const ShortFormVideos = () => {
     'https://drive.google.com/file/d/1Nhy1s5gM4uUl3HBdSASOalCOTgXLYCPl/view?usp=drive_link',
     'https://drive.google.com/file/d/1qHtvIq1m_G4875zMBQWxuhlFkE20i83w/view?usp=drive_link'
   ];
+
+  const displayVideos = videos.length > 0 ? videos : fallbackVideos.map((url, index) => ({
+    slug: `short-form-${index}`,
+    title: `Short Form Video ${index + 1}`,
+    videoUrl: url,
+    category: 'short-form' as const,
+    date: new Date().toISOString()
+  }));
 
   return (
     <div className="min-h-screen bg-black">
@@ -32,9 +44,20 @@ const ShortFormVideos = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {videoLinks.map((url, index) => (
-              <VideoPlaceholder key={index} url={url} index={index} />
-            ))}
+            {loading ? (
+              <div className="col-span-full text-center">
+                <p className="text-gray-400">Loading videos...</p>
+              </div>
+            ) : (
+              displayVideos.map((video, index) => (
+                <VideoPlaceholder
+                  key={video.slug}
+                  url={typeof video === 'string' ? video : getVideoEmbedUrl(video.videoUrl)}
+                  index={index}
+                  title={typeof video === 'string' ? undefined : video.title}
+                />
+              ))
+            )}
           </div>
 
           <div className="text-center mt-12 space-x-6">

@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import VideoPlaceholder from '@/components/VideoPlaceholder';
+import { useCMSVideos, getVideoEmbedUrl } from '@/hooks/useCMSContent';
 
 const PromoVideos = () => {
-  const videoLinks = [
+  const { videos, loading } = useCMSVideos('promo');
+
+  // Fallback videos if CMS is empty (using existing URLs)
+  const fallbackVideos = [
     'https://drive.google.com/file/d/1tdxYXrPasZIVusVYZEmDmgimRLyFPzgS/view?usp=drive_link',
     'https://drive.google.com/file/d/1dsP3nFCNzTTQF0fcU7f2jFUsrADde7Qj/view?usp=drive_link',
     'https://drive.google.com/file/d/1recaydlnhau0iZ5i8XAE8bLIZUscA3Zn/view?usp=drive_link',
@@ -12,6 +16,14 @@ const PromoVideos = () => {
     'https://drive.google.com/file/d/10j33RJnWOKj-VXFZmhAVeuIcoXypF3l8/view?usp=drive_link',
     'https://drive.google.com/file/d/12-duPnv4v85B4TpIwZMLdCua8POoCfOh/view?usp=drive_link'
   ];
+
+  const displayVideos = videos.length > 0 ? videos : fallbackVideos.map((url, index) => ({
+    slug: `promo-${index}`,
+    title: `Promo Video ${index + 1}`,
+    videoUrl: url,
+    category: 'promo' as const,
+    date: new Date().toISOString()
+  }));
 
   return (
     <div className="min-h-screen bg-black">
@@ -28,9 +40,20 @@ const PromoVideos = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {videoLinks.map((url, index) => (
-              <VideoPlaceholder key={index} url={url} index={index} />
-            ))}
+            {loading ? (
+              <div className="col-span-full text-center">
+                <p className="text-gray-400">Loading videos...</p>
+              </div>
+            ) : (
+              displayVideos.map((video, index) => (
+                <VideoPlaceholder
+                  key={video.slug}
+                  url={typeof video === 'string' ? video : getVideoEmbedUrl(video.videoUrl)}
+                  index={index}
+                  title={typeof video === 'string' ? undefined : video.title}
+                />
+              ))
+            )}
           </div>
 
           <div className="text-center mt-12 space-x-6">

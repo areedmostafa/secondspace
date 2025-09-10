@@ -10,6 +10,8 @@ import Videos from "./pages/Videos";
 import ShortFormVideos from "./pages/ShortFormVideos";
 import PromoVideos from "./pages/PromoVideos";
 import MotionGraphics from "./pages/MotionGraphics";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
           <Route path="/portfolio/videos/short-form" element={<ShortFormVideos />} />
           <Route path="/portfolio/videos/promo" element={<PromoVideos />} />
           <Route path="/portfolio/videos/motion-graphics" element={<MotionGraphics />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

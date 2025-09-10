@@ -4,9 +4,10 @@ import { useInView } from 'react-intersection-observer';
 interface VideoPlaceholderProps {
   url: string;
   index: number;
+  title?: string;
 }
 
-const VideoPlaceholder = ({ url, index }: VideoPlaceholderProps) => {
+const VideoPlaceholder = ({ url, index, title }: VideoPlaceholderProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const { ref, inView } = useInView({
     threshold: 0.1,

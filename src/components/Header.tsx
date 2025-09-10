@@ -51,6 +51,9 @@ const Header = () => {
             <a href="/portfolio" className="text-foreground hover:text-primary transition-colors">
               Portfolio
             </a>
+            <a href="/blog" className="text-foreground hover:text-primary transition-colors">
+              Blog
+            </a>
             <a href="/case-studies" className="text-foreground hover:text-primary transition-colors">
               Case Studies
             </a>
@@ -86,6 +89,9 @@ const Header = () => {
               </button>
               <a href="/portfolio" className="text-foreground hover:text-primary transition-colors">
                 Portfolio
+              </a>
+              <a href="/blog" className="text-foreground hover:text-primary transition-colors">
+                Blog
               </a>
               <a href="/case-studies" className="text-foreground hover:text-primary transition-colors">
                 Case Studies
