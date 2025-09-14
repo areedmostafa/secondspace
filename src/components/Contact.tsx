@@ -124,7 +124,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold">Visit Us</div>
-                  <div className="text-muted-foreground">San Francisco, CA</div>
+                  <div className="text-muted-foreground">Nikunja 2, Dhaka 1229</div>
                 </div>
               </div>
             </div>
