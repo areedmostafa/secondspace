@@ -1,39 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
-interface BlogPostData {
-  title: string;
-  date: string;
-  featuredImage: string;
-  metaTitle: string;
-  metaDescription: string;
-  content: string;
-}
+import { useCMSBlogPost } from '@/hooks/useCMSContent';
+import ReactMarkdown from 'react-markdown';
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [post, setPost] = useState<BlogPostData | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadBlogPost = async () => {
-      try {
-        // In a real implementation, this would fetch the specific post from your CMS API
-        // For now, we'll show a placeholder
-        setPost(null);
-      } catch (error) {
-        console.error('Error loading blog post:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (slug) {
-      loadBlogPost();
-    }
-  }, [slug]);
+  const { post, loading } = useCMSBlogPost(slug || '');
 
   if (loading) {
     return (
@@ -95,8 +68,8 @@ const BlogPost = () => {
             </h1>
           </header>
 
-          <div className="prose prose-lg max-w-none text-foreground">
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground prose-a:text-primary">
+            <ReactMarkdown>{post.body}</ReactMarkdown>
           </div>
         </article>
       </main>

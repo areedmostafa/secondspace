@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import matter from 'gray-matter';
 
 interface CMSVideo {
   slug: string;
@@ -26,13 +27,28 @@ export const useCMSVideos = (category?: string) => {
   useEffect(() => {
     const loadVideos = async () => {
       try {
-        // In a production environment, this would fetch from Netlify CMS API
-        // For now, we'll return the existing hardcoded videos as CMS format
-        const mockVideos: CMSVideo[] = [];
+        const videoFiles = import.meta.glob('/content/videos/*.md', { as: 'raw' });
+        const loadedVideos: CMSVideo[] = [];
+
+        for (const path in videoFiles) {
+          const content = await videoFiles[path]();
+          const { data } = matter(content);
+          
+          loadedVideos.push({
+            slug: data.slug,
+            title: data.title,
+            videoUrl: data.videoUrl,
+            category: data.category,
+            description: data.description,
+            date: data.date,
+          });
+        }
+
+        loadedVideos.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         
         const filteredVideos = category 
-          ? mockVideos.filter(video => video.category === category)
-          : mockVideos;
+          ? loadedVideos.filter(video => video.category === category)
+          : loadedVideos;
         
         setVideos(filteredVideos);
       } catch (error) {
@@ -55,9 +71,26 @@ export const useCMSBlogPosts = () => {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        // In a production environment, this would fetch from Netlify CMS API
-        const mockPosts: CMSBlogPost[] = [];
-        setPosts(mockPosts);
+        const blogFiles = import.meta.glob('/content/blog/*.md', { as: 'raw' });
+        const loadedPosts: CMSBlogPost[] = [];
+
+        for (const path in blogFiles) {
+          const content = await blogFiles[path]();
+          const { data, content: body } = matter(content);
+          
+          loadedPosts.push({
+            slug: data.slug,
+            title: data.title,
+            date: data.date,
+            featuredImage: data.featuredImage,
+            metaTitle: data.metaTitle,
+            metaDescription: data.metaDescription,
+            body: body,
+          });
+        }
+
+        loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        setPosts(loadedPosts);
       } catch (error) {
         console.error('Error loading CMS blog posts:', error);
       } finally {
@@ -69,6 +102,45 @@ export const useCMSBlogPosts = () => {
   }, []);
 
   return { posts, loading };
+};
+
+export const useCMSBlogPost = (slug: string) => {
+  const [post, setPost] = useState<CMSBlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPost = async () => {
+      try {
+        const blogFiles = import.meta.glob('/content/blog/*.md', { as: 'raw' });
+        
+        for (const path in blogFiles) {
+          const content = await blogFiles[path]();
+          const { data, content: body } = matter(content);
+          
+          if (data.slug === slug) {
+            setPost({
+              slug: data.slug,
+              title: data.title,
+              date: data.date,
+              featuredImage: data.featuredImage,
+              metaTitle: data.metaTitle,
+              metaDescription: data.metaDescription,
+              body: body,
+            });
+            break;
+          }
+        }
+      } catch (error) {
+        console.error('Error loading CMS blog post:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPost();
+  }, [slug]);
+
+  return { post, loading };
 };
 
 export const getVideoEmbedUrl = (url: string): string => {

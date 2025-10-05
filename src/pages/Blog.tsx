@@ -1,36 +1,10 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
-interface BlogPost {
-  slug: string;
-  title: string;
-  date: string;
-  featuredImage: string;
-  metaDescription: string;
-}
+import { useCMSBlogPosts } from '@/hooks/useCMSContent';
 
 const Blog = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadBlogPosts = async () => {
-      try {
-        // In a real implementation, this would fetch from your CMS API
-        // For now, we'll create a placeholder structure
-        const mockPosts: BlogPost[] = [];
-        setPosts(mockPosts);
-      } catch (error) {
-        console.error('Error loading blog posts:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadBlogPosts();
-  }, []);
+  const { posts, loading } = useCMSBlogPosts();
 
   return (
     <div className="min-h-screen bg-background">
