@@ -71,12 +71,25 @@ export const useCMSBlogPosts = () => {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const blogFiles = import.meta.glob('/content/blog/*.md', { as: 'raw' });
+        // Support both dev and build by trying multiple glob patterns and eager loading
+        const blogFiles = {
+          ...import.meta.glob('/content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('/content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('../../content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('../../content/blog/**/*.md', { as: 'raw', eager: true }),
+        } as Record<string, string | (() => Promise<string>)>;
+
         const loadedPosts: CMSBlogPost[] = [];
 
         for (const path in blogFiles) {
-          const content = await blogFiles[path]();
-          const { data, content: body } = matter(content);
+          const fileModule = blogFiles[path] as string | (() => Promise<string>);
+          const raw = typeof fileModule === 'function' ? await fileModule() : fileModule;
+          const { data, content: body } = matter(raw);
+
+          // Skip if required fields are missing
+          if (!data?.slug || !data?.title) continue;
           
           loadedPosts.push({
             slug: data.slug,
@@ -87,6 +100,10 @@ export const useCMSBlogPosts = () => {
             metaDescription: data.metaDescription,
             body: body,
           });
+        }
+
+        if (loadedPosts.length === 0) {
+          console.warn('[CMS] No blog posts found. Ensure files exist in content/blog and frontmatter includes slug and title.');
         }
 
         loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -111,11 +128,17 @@ export const useCMSBlogPost = (slug: string) => {
   useEffect(() => {
     const loadPost = async () => {
       try {
-        const blogFiles = import.meta.glob('/content/blog/*.md', { as: 'raw' });
+        const blogFiles = {
+          ...import.meta.glob('/content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('/content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('content/blog/**/*.md', { as: 'raw', eager: true }),
+        } as Record<string, string | (() => Promise<string>)>;
         
         for (const path in blogFiles) {
-          const content = await blogFiles[path]();
-          const { data, content: body } = matter(content);
+          const fileModule = blogFiles[path] as string | (() => Promise<string>);
+          const raw = typeof fileModule === 'function' ? await fileModule() : fileModule;
+          const { data, content: body } = matter(raw);
           
           if (data.slug === slug) {
             setPost({
