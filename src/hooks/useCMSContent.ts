@@ -67,20 +67,34 @@ export const useCMSVideos = (category?: string) => {
 export const useCMSBlogPosts = () => {
   const [posts, setPosts] = useState<CMSBlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [debugPaths, setDebugPaths] = useState<string[]>([]);
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
         // Support both dev and build by trying multiple glob patterns and eager loading
         const blogFiles = {
+          // Non-eager (returns functions)
+          ...import.meta.glob('/content/blog/*.md', { as: 'raw' }),
+          ...import.meta.glob('/content/blog/**/*.md', { as: 'raw' }),
+          ...import.meta.glob('./content/blog/*.md', { as: 'raw' }),
+          ...import.meta.glob('./content/blog/**/*.md', { as: 'raw' }),
+          ...import.meta.glob('content/blog/*.md', { as: 'raw' }),
+          ...import.meta.glob('content/blog/**/*.md', { as: 'raw' }),
+          ...import.meta.glob('../../content/blog/*.md', { as: 'raw' }),
+          ...import.meta.glob('../../content/blog/**/*.md', { as: 'raw' }),
+          // Eager (returns strings immediately at build time)
           ...import.meta.glob('/content/blog/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('/content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('./content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('./content/blog/**/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('content/blog/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('content/blog/**/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('../../content/blog/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('../../content/blog/**/*.md', { as: 'raw', eager: true }),
         } as Record<string, string | (() => Promise<string>)>;
 
+        console.log('[CMS] Blog glob matches:', Object.keys(blogFiles));
         const loadedPosts: CMSBlogPost[] = [];
 
         for (const path in blogFiles) {
@@ -131,8 +145,12 @@ export const useCMSBlogPost = (slug: string) => {
         const blogFiles = {
           ...import.meta.glob('/content/blog/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('/content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('./content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('./content/blog/**/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('content/blog/*.md', { as: 'raw', eager: true }),
           ...import.meta.glob('content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('../../content/blog/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('../../content/blog/**/*.md', { as: 'raw', eager: true }),
         } as Record<string, string | (() => Promise<string>)>;
         
         for (const path in blogFiles) {
