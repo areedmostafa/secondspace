@@ -68,6 +68,7 @@ export const useCMSBlogPosts = () => {
   const [posts, setPosts] = useState<CMSBlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [debugPaths, setDebugPaths] = useState<string[]>([]);
+  const [debugInfo, setDebugInfo] = useState<string[]>([]);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -76,28 +77,32 @@ export const useCMSBlogPosts = () => {
         const blogFiles = {
           ...import.meta.glob('/content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
           ...import.meta.glob('/content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
-          ...import.meta.glob('../content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
-          ...import.meta.glob('../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../../content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
         } as Record<string, string | (() => Promise<string>)>;
 
         console.log('[CMS] Blog glob matches:', Object.keys(blogFiles));
+        setDebugPaths(Object.keys(blogFiles));
         const loadedPosts: CMSBlogPost[] = [];
+        const debug: string[] = [];
 
         for (const path in blogFiles) {
           const fileModule = blogFiles[path] as string | (() => Promise<string>);
           const raw = typeof fileModule === 'function' ? await fileModule() : fileModule;
-          const { data, content: body } = matter(raw);
+          const { data, content: body } = matter(raw as string);
+          const fileName = path.split('/').pop()?.replace(/\.md$/, '') || 'post';
+          const fallbackSlug = data?.slug || fileName;
+          const fallbackTitle = data?.title || fileName.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
 
-          // Skip if required fields are missing
-          if (!data?.slug || !data?.title) continue;
-          
+          debug.push(`${path} -> slug:${data?.slug ? 'ok' : 'fallback'}, title:${data?.title ? 'ok' : 'fallback'}`);
+
           loadedPosts.push({
-            slug: data.slug,
-            title: data.title,
-            date: data.date,
-            featuredImage: data.featuredImage,
-            metaTitle: data.metaTitle,
-            metaDescription: data.metaDescription,
+            slug: fallbackSlug,
+            title: fallbackTitle,
+            date: data?.date || new Date().toISOString(),
+            featuredImage: data?.featuredImage || '/placeholder.svg',
+            metaTitle: data?.metaTitle || fallbackTitle,
+            metaDescription: data?.metaDescription || '',
             body: body,
           });
         }
@@ -108,6 +113,7 @@ export const useCMSBlogPosts = () => {
 
         loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         setPosts(loadedPosts);
+        setDebugInfo(debug);
       } catch (error) {
         console.error('Error loading CMS blog posts:', error);
       } finally {
@@ -118,7 +124,7 @@ export const useCMSBlogPosts = () => {
     loadPosts();
   }, []);
 
-  return { posts, loading };
+  return { posts, loading, debugPaths, debugInfo };
 };
 
 export const useCMSBlogPost = (slug: string) => {
@@ -131,8 +137,8 @@ export const useCMSBlogPost = (slug: string) => {
         const blogFiles = {
           ...import.meta.glob('/content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
           ...import.meta.glob('/content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
-          ...import.meta.glob('../content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
-          ...import.meta.glob('../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../../content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
         } as Record<string, string | (() => Promise<string>)>;
         
         for (const path in blogFiles) {
