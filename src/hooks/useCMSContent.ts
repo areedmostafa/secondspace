@@ -27,11 +27,11 @@ export const useCMSVideos = (category?: string) => {
   useEffect(() => {
     const loadVideos = async () => {
       try {
-        const videoFiles = import.meta.glob('/content/videos/*.md', { as: 'raw' });
+        const videoFiles = import.meta.glob('/content/videos/*.md', { query: '?raw', import: 'default' });
         const loadedVideos: CMSVideo[] = [];
 
         for (const path in videoFiles) {
-          const content = await videoFiles[path]();
+          const content = await videoFiles[path]() as string;
           const { data } = matter(content);
           
           loadedVideos.push({
@@ -74,24 +74,10 @@ export const useCMSBlogPosts = () => {
       try {
         // Support both dev and build by trying multiple glob patterns and eager loading
         const blogFiles = {
-          // Non-eager (returns functions)
-          ...import.meta.glob('/content/blog/*.md', { as: 'raw' }),
-          ...import.meta.glob('/content/blog/**/*.md', { as: 'raw' }),
-          ...import.meta.glob('./content/blog/*.md', { as: 'raw' }),
-          ...import.meta.glob('./content/blog/**/*.md', { as: 'raw' }),
-          ...import.meta.glob('content/blog/*.md', { as: 'raw' }),
-          ...import.meta.glob('content/blog/**/*.md', { as: 'raw' }),
-          ...import.meta.glob('../../content/blog/*.md', { as: 'raw' }),
-          ...import.meta.glob('../../content/blog/**/*.md', { as: 'raw' }),
-          // Eager (returns strings immediately at build time)
-          ...import.meta.glob('/content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('/content/blog/**/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('./content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('./content/blog/**/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('content/blog/**/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('../../content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('../../content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('/content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('/content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
         } as Record<string, string | (() => Promise<string>)>;
 
         console.log('[CMS] Blog glob matches:', Object.keys(blogFiles));
@@ -143,14 +129,10 @@ export const useCMSBlogPost = (slug: string) => {
     const loadPost = async () => {
       try {
         const blogFiles = {
-          ...import.meta.glob('/content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('/content/blog/**/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('./content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('./content/blog/**/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('content/blog/**/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('../../content/blog/*.md', { as: 'raw', eager: true }),
-          ...import.meta.glob('../../content/blog/**/*.md', { as: 'raw', eager: true }),
+          ...import.meta.glob('/content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('/content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
+          ...import.meta.glob('../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
         } as Record<string, string | (() => Promise<string>)>;
         
         for (const path in blogFiles) {
