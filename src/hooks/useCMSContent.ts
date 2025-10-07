@@ -123,8 +123,13 @@ export const useCMSBlogPosts = () => {
           console.warn('[CMS] No blog posts found. Ensure files exist in content/blog and frontmatter includes slug and title.');
         }
 
-        loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        setPosts(loadedPosts);
+        // Deduplicate posts by slug (glob patterns may match same file multiple times)
+        const uniquePosts = Array.from(
+          new Map(loadedPosts.map(post => [post.slug, post])).values()
+        );
+
+        uniquePosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        setPosts(uniquePosts);
         setDebugInfo(debug);
       } catch (error) {
         console.error('Error loading CMS blog posts:', error);
