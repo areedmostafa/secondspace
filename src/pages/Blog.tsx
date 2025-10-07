@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useCMSBlogPosts } from '@/hooks/useCMSContent';
+import { useCMSBlogPosts } from '@/hooks/useCMSBlogPosts';
 
 const Blog = () => {
-  const { posts, loading, debugPaths, debugInfo } = useCMSBlogPosts();
+  const { posts, loading } = useCMSBlogPosts();
 
   return (
     <div className="min-h-screen bg-background">
@@ -25,16 +25,8 @@ const Blog = () => {
               <p className="text-muted-foreground">Loading blog posts...</p>
             </div>
           ) : posts.length === 0 ? (
-            <div className="text-center space-y-3">
+            <div className="text-center">
               <p className="text-muted-foreground">No blog posts available yet. Check back soon!</p>
-              {debugPaths && debugPaths.length > 0 && (
-                <div className="text-xs text-muted-foreground/70 space-y-1">
-                  <p>Debug: matched files: {debugPaths.length}</p>
-                  {debugInfo?.slice(0, 5).map((d, i) => (
-                    <p key={i}>{d}</p>
-                  ))}
-                </div>
-              )}
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

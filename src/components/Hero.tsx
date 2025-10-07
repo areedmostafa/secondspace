@@ -1,21 +1,11 @@
 
 import { Button } from '@/components/ui/button';
 import Counter from '@/components/Counter';
+import { scrollToSection } from '@/utils/scrollToSection';
 
 const Hero = () => {
-  const handleGetAuditClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleStrategyCallClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const handleGetAuditClick = () => scrollToSection('contact');
+  const handleStrategyCallClick = () => scrollToSection('contact');
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-dark relative overflow-hidden pt-24 md:pt-20 cinema-grain">

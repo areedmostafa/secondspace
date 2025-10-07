@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useCMSBlogPost } from '@/hooks/useCMSContent';
+import { useCMSBlogPost } from '@/hooks/useCMSBlogPost';
 import ReactMarkdown from 'react-markdown';
 
 const BlogPost = () => {
