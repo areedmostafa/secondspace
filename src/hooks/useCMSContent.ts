@@ -87,24 +87,36 @@ export const useCMSBlogPosts = () => {
         const debug: string[] = [];
 
         for (const path in blogFiles) {
-          const fileModule = blogFiles[path] as string | (() => Promise<string>);
-          const raw = typeof fileModule === 'function' ? await fileModule() : fileModule;
-          const { data, content: body } = matter(raw as string);
-          const fileName = path.split('/').pop()?.replace(/\.md$/, '') || 'post';
-          const fallbackSlug = data?.slug || fileName;
-          const fallbackTitle = data?.title || fileName.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
+          try {
+            const fileModule = blogFiles[path] as unknown;
+            const resolved = typeof fileModule === 'function' ? await (fileModule as () => Promise<unknown>)() : fileModule;
+            const raw = typeof resolved === 'string'
+              ? resolved
+              : (resolved && typeof resolved === 'object' && 'default' in (resolved as Record<string, unknown>)
+                  ? (resolved as Record<string, unknown>).default as string
+                  : String(resolved));
 
-          debug.push(`${path} -> slug:${data?.slug ? 'ok' : 'fallback'}, title:${data?.title ? 'ok' : 'fallback'}`);
+            const { data, content: body } = matter(raw);
+            const fileName = path.split('/').pop()?.replace(/\.md$/, '') || 'post';
+            const fallbackSlug = (data as any)?.slug || fileName;
+            const fallbackTitle = (data as any)?.title || fileName.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
 
-          loadedPosts.push({
-            slug: fallbackSlug,
-            title: fallbackTitle,
-            date: data?.date || new Date().toISOString(),
-            featuredImage: data?.featuredImage || '/placeholder.svg',
-            metaTitle: data?.metaTitle || fallbackTitle,
-            metaDescription: data?.metaDescription || '',
-            body: body,
-          });
+            debug.push(`${path} -> parsed:ok, slug:${(data as any)?.slug ? 'ok' : 'fallback'}, title:${(data as any)?.title ? 'ok' : 'fallback'}`);
+
+            loadedPosts.push({
+              slug: fallbackSlug,
+              title: fallbackTitle,
+              date: (data as any)?.date || new Date().toISOString(),
+              featuredImage: (data as any)?.featuredImage || '/placeholder.svg',
+              metaTitle: (data as any)?.metaTitle || fallbackTitle,
+              metaDescription: (data as any)?.metaDescription || '',
+              body: body,
+            });
+          } catch (e) {
+            debug.push(`${path} -> parse:error ${(e as Error).message ?? e}`);
+            console.warn('[CMS] Failed to parse blog file', path, e);
+            continue;
+          }
         }
 
         if (loadedPosts.length === 0) {
@@ -142,21 +154,32 @@ export const useCMSBlogPost = (slug: string) => {
         } as Record<string, string | (() => Promise<string>)>;
         
         for (const path in blogFiles) {
-          const fileModule = blogFiles[path] as string | (() => Promise<string>);
-          const raw = typeof fileModule === 'function' ? await fileModule() : fileModule;
-          const { data, content: body } = matter(raw);
-          
-          if (data.slug === slug) {
-            setPost({
-              slug: data.slug,
-              title: data.title,
-              date: data.date,
-              featuredImage: data.featuredImage,
-              metaTitle: data.metaTitle,
-              metaDescription: data.metaDescription,
-              body: body,
-            });
-            break;
+          try {
+            const fileModule = blogFiles[path] as unknown;
+            const resolved = typeof fileModule === 'function' ? await (fileModule as () => Promise<unknown>)() : fileModule;
+            const raw = typeof resolved === 'string'
+              ? resolved
+              : (resolved && typeof resolved === 'object' && 'default' in (resolved as Record<string, unknown>)
+                  ? (resolved as Record<string, unknown>).default as string
+                  : String(resolved));
+
+            const { data, content: body } = matter(raw);
+
+            if ((data as any)?.slug === slug) {
+              setPost({
+                slug: (data as any).slug,
+                title: (data as any).title,
+                date: (data as any).date,
+                featuredImage: (data as any).featuredImage,
+                metaTitle: (data as any).metaTitle,
+                metaDescription: (data as any).metaDescription,
+                body: body,
+              });
+              break;
+            }
+          } catch (e) {
+            console.warn('[CMS] Failed to parse blog file', path, e);
+            continue;
           }
         }
       } catch (error) {
