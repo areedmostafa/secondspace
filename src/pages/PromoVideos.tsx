@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import VideoPlaceholder from '@/components/VideoPlaceholder';
-import { useCMSVideos, getVideoEmbedUrl } from '@/hooks/useCMSContent';
+import { useCMSVideos } from '@/hooks/useCMSVideos';
+import { getVideoEmbedUrl } from '@/utils/videoEmbedHelper';
 
 const PromoVideos = () => {
   const { videos, loading } = useCMSVideos('promo');

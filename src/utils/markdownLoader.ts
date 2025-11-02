@@ -10,11 +10,11 @@ import matter from 'gray-matter';
  * Multiple patterns ensure compatibility across dev and production builds
  */
 export const BLOG_GLOB_PATTERNS = {
-  ...import.meta.glob('/content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
-  ...import.meta.glob('/content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
-  ...import.meta.glob('../../content/blog/*.md', { query: '?raw', import: 'default', eager: true }),
-  ...import.meta.glob('../../content/blog/**/*.md', { query: '?raw', import: 'default', eager: true }),
-} as Record<string, string | (() => Promise<string>)>;
+  ...import.meta.glob('/content/blog/*.md', { query: '?raw', import: 'default' }),
+  ...import.meta.glob('/content/blog/**/*.md', { query: '?raw', import: 'default' }),
+  ...import.meta.glob('../../content/blog/*.md', { query: '?raw', import: 'default' }),
+  ...import.meta.glob('../../content/blog/**/*.md', { query: '?raw', import: 'default' }),
+} as Record<string, () => Promise<string>>;
 
 export const VIDEO_GLOB_PATTERNS = import.meta.glob('/content/videos/*.md', { 
   query: '?raw', 
