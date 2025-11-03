@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useCMSBlogPosts } from '@/hooks/useCMSBlogPosts';
 
 const Blog = () => {
@@ -11,7 +12,10 @@ const Blog = () => {
       <Header />
       <main className="pt-20">
         <div className="container mx-auto px-6 py-16">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 relative">
+            <div className="absolute top-0 right-0">
+              <ThemeToggle />
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
               Our Blog
             </h1>

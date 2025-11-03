@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useCMSBlogPost } from '@/hooks/useCMSBlogPost';
@@ -7,6 +8,56 @@ import ReactMarkdown from 'react-markdown';
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { post, loading } = useCMSBlogPost(slug || '');
+
+  // Update meta tags for social sharing when post loads
+  useEffect(() => {
+    if (post) {
+      // Update page title
+      document.title = `${post.title} | SecondSpace`;
+
+      // Update or create Open Graph meta tags
+      const updateMetaTag = (property: string, content: string) => {
+        let element = document.querySelector(`meta[property="${property}"]`);
+        if (!element) {
+          element = document.createElement('meta');
+          element.setAttribute('property', property);
+          document.head.appendChild(element);
+        }
+        element.setAttribute('content', content);
+      };
+
+      const updateNameMetaTag = (name: string, content: string) => {
+        let element = document.querySelector(`meta[name="${name}"]`);
+        if (!element) {
+          element = document.createElement('meta');
+          element.setAttribute('name', name);
+          document.head.appendChild(element);
+        }
+        element.setAttribute('content', content);
+      };
+
+      // Update Open Graph tags
+      updateMetaTag('og:title', post.title);
+      updateMetaTag('og:description', post.metaDescription);
+      updateMetaTag('og:image', post.featuredImage);
+      updateMetaTag('og:type', 'article');
+      updateMetaTag('og:url', window.location.href);
+
+      // Update Twitter Card tags
+      updateNameMetaTag('twitter:card', 'summary_large_image');
+      updateNameMetaTag('twitter:title', post.title);
+      updateNameMetaTag('twitter:description', post.metaDescription);
+      updateNameMetaTag('twitter:image', post.featuredImage);
+
+      // Update description meta tag
+      updateNameMetaTag('description', post.metaDescription);
+    }
+
+    // Cleanup function to restore default meta tags
+    return () => {
+      document.title = 'SecondSpace – Social Media Marketing & Digital Growth Agency';
+    };
+  }, [post]);
 
   if (loading) {
     return (

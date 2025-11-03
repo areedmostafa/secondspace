@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { useInView } from 'react-intersection-observer';
 
 const services = [
   {
@@ -40,6 +41,11 @@ const services = [
 ];
 
 const Services = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -52,9 +58,17 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-card border-border hover-glow group cursor-pointer">
+            <Card 
+              key={index} 
+              className={`bg-card border-border hover-glow group cursor-pointer transition-all duration-700 ${
+                inView 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 translate-x-20'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <CardContent className="p-8">
                 <div className="text-4xl mb-4 group-hover:animate-float">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
