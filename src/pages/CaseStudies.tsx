@@ -1,10 +1,17 @@
 import { ArrowLeft, TrendingUp, Users, MousePointer } from 'lucide-react';
+import { useEffect } from 'react';
+import { useTheme } from '@/components/ThemeProvider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
 
 const CaseStudies = () => {
   const navigate = useNavigate();
+  const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setTheme('dark');
+  }, [setTheme]);
 
   return (
     <div className="min-h-screen bg-background">

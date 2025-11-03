@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useCMSBlogPost } from '@/hooks/useCMSBlogPost';
 import ReactMarkdown from 'react-markdown';
 
@@ -98,9 +99,12 @@ const BlogPost = () => {
       <Header />
       <main className="pt-20">
         <article className="container mx-auto px-6 py-16 max-w-4xl">
-          <Link to="/blog" className="text-primary hover:underline mb-8 inline-block">
-            ← Back to Blog
-          </Link>
+          <div className="flex justify-between items-center mb-8">
+            <Link to="/blog" className="text-primary hover:underline">
+              ← Back to Blog
+            </Link>
+            <ThemeToggle />
+          </div>
           
           <div className="aspect-video bg-muted rounded-xl overflow-hidden mb-8">
             <img

@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useTheme } from '@/components/ThemeProvider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const Videos = () => {
+  const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setTheme('dark');
+  }, [setTheme]);
+
   const categories = [
     {
       title: 'Short Form Contents',
@@ -25,15 +33,15 @@ const Videos = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-20">
         <div className="container mx-auto px-6 py-16">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
               Video Portfolio
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               A comprehensive showcase of our video production expertise across multiple formats and styles.
             </p>
           </div>
@@ -43,15 +51,15 @@ const Videos = () => {
               <Link 
                 key={index}
                 to={category.path}
-                className="group bg-gray-900/50 rounded-xl p-8 border border-gray-800 hover:border-primary/50 transition-all duration-300 hover:transform hover:scale-105 animate-fade-in"
+                className="group bg-card rounded-xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:transform hover:scale-105 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="text-center">
                   <div className="text-4xl mb-6">{category.icon}</div>
-                  <h2 className="text-2xl font-semibold text-white mb-4 group-hover:text-primary transition-colors">
+                  <h2 className="text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
                     {category.title}
                   </h2>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {category.description}
                   </p>
                 </div>

@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useTheme } from '@/components/ThemeProvider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import VideoPlaceholder from '@/components/VideoPlaceholder';
@@ -7,6 +9,11 @@ import { getVideoEmbedUrl } from '@/utils/videoEmbedHelper';
 
 const PromoVideos = () => {
   const { videos, loading } = useCMSVideos('promo');
+  const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setTheme('dark');
+  }, [setTheme]);
 
   // Fallback videos if CMS is empty (using existing URLs)
   const fallbackVideos = [
@@ -27,15 +34,15 @@ const PromoVideos = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-20">
         <div className="container mx-auto px-6 py-16">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Promo Videos
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               A curated collection of our Promo Videos works.
             </p>
           </div>
@@ -43,7 +50,7 @@ const PromoVideos = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {loading ? (
               <div className="col-span-full text-center">
-                <p className="text-gray-400">Loading videos...</p>
+                <p className="text-muted-foreground">Loading videos...</p>
               </div>
             ) : (
               displayVideos.map((video, index) => (
@@ -66,7 +73,7 @@ const PromoVideos = () => {
             </Link>
             <Link 
               to="/portfolio" 
-              className="text-gray-400 hover:text-white transition-colors font-medium"
+              className="text-muted-foreground hover:text-foreground transition-colors font-medium"
             >
               Portfolio Home
             </Link>
