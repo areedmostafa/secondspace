@@ -1,6 +1,6 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import Counter from '@/components/Counter';
+import { useInView } from 'react-intersection-observer';
 
 const whyChooseUs = [
   {
@@ -26,12 +26,27 @@ const whyChooseUs = [
 ];
 
 const About = () => {
+  const { ref: contentRef, inView: contentInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: cardsRef, inView: cardsInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
-          <div>
+          <div 
+            ref={contentRef}
+            className={`transition-all duration-700 ${
+              contentInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Your Trusted Global <span className="text-gradient">Growth Partner</span>
             </h2>
@@ -60,9 +75,15 @@ const About = () => {
           </div>
 
           {/* Right Column - Why Choose Us Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {whyChooseUs.map((item, index) => (
-              <Card key={index} className="bg-card border-border hover-glow">
+              <Card 
+                key={index} 
+                className={`bg-card border-border hover-glow transition-all duration-700 ${
+                  cardsInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-4">{item.icon}</div>
                   <h3 className="text-lg font-semibold mb-3">{item.title}</h3>

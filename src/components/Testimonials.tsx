@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useInView } from 'react-intersection-observer';
 
 const testimonials = [
   {
@@ -67,6 +67,10 @@ const testimonials = [
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -90,7 +94,12 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div 
+          ref={ref}
+          className={`max-w-4xl mx-auto transition-all duration-700 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}
+        >
           <Card className="bg-card border-border">
             <CardContent className="p-8 md:p-12">
               <div className="text-center">

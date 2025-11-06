@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -10,6 +10,14 @@ import { supabase } from '@/integrations/supabase/client';
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { ref: leftRef, inView: leftInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const { ref: rightRef, inView: rightInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -90,7 +98,12 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Contact Info */}
-          <div>
+          <div 
+            ref={leftRef}
+            className={`transition-all duration-700 ${
+              leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to <span className="text-gradient">Start Growing</span>?
             </h2>
@@ -144,7 +157,12 @@ const Contact = () => {
           </div>
 
           {/* Right Column - Contact Form */}
-          <Card className="bg-card border-border">
+          <Card 
+            ref={rightRef}
+            className={`bg-card border-border transition-all duration-700 ${
+              rightInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+            }`}
+          >
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
