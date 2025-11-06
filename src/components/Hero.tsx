@@ -1,18 +1,25 @@
-
 import { Button } from '@/components/ui/button';
 import Counter from '@/components/Counter';
 import { scrollToSection } from '@/utils/scrollToSection';
+import heroBg from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   const handleGetAuditClick = () => scrollToSection('contact');
   const handleStrategyCallClick = () => scrollToSection('contact');
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-dark relative overflow-hidden pt-24 md:pt-20 cinema-grain">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 md:pt-20">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+      
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-30"></div>
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-20"></div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
