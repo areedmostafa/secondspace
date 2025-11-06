@@ -58,11 +58,15 @@ const Services = () => {
           </p>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div 
+          ref={ref} 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:snap-y md:snap-mandatory overflow-y-auto"
+          style={{ scrollSnapType: 'y mandatory' }}
+        >
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`bg-card border-border hover-glow group cursor-pointer transition-all duration-700 ${
+              className={`bg-card border-border hover-glow group cursor-pointer transition-all duration-700 snap-start ${
                 inView 
                   ? 'opacity-100 translate-x-0' 
                   : 'opacity-0 translate-x-20'
