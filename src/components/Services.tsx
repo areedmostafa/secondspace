@@ -58,15 +58,52 @@ const Services = () => {
           </p>
         </div>
 
+        {/* Mobile: Horizontal Scroll */}
         <div 
-          ref={ref} 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:snap-y md:snap-mandatory overflow-y-auto"
-          style={{ scrollSnapType: 'y mandatory' }}
+          ref={ref}
+          className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-6 px-6 scrollbar-hide"
+          style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth' }}
         >
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`bg-card border-border hover-glow group cursor-pointer transition-all duration-700 snap-start ${
+              className={`bg-card border-border hover-glow group cursor-pointer transition-all duration-700 snap-center flex-shrink-0 w-[85vw] ${
+                inView 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 translate-x-20'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <CardContent className="p-8">
+                <div className="text-4xl mb-4 group-hover:animate-float">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  {service.description}
+                </p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Desktop: Grid Layout */}
+        <div 
+          ref={ref} 
+          className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {services.map((service, index) => (
+            <Card 
+              key={index} 
+              className={`bg-card border-border hover-glow group cursor-pointer transition-all duration-700 ${
                 inView 
                   ? 'opacity-100 translate-x-0' 
                   : 'opacity-0 translate-x-20'
