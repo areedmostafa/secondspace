@@ -3,12 +3,18 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useCMSBlogPosts } from '@/hooks/useCMSBlogPosts';
+import SEO from '@/components/SEO';
 
 const Blog = () => {
   const { posts, loading } = useCMSBlogPosts();
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Blog - Social Media Marketing Insights"
+        description="Explore expert insights, tips, and trends in social media marketing, content creation, and digital growth strategies from SecondSpace."
+        canonical="https://secondspace.studio/blog"
+      />
       <Header />
       <main className="pt-20">
         <div className="container mx-auto px-6 py-16">

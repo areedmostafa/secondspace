@@ -7,6 +7,7 @@ import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const Index = () => {
   const { setTheme } = useTheme();
@@ -17,6 +18,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Social Media Marketing & Digital Growth Agency"
+        description="SecondSpace is a global social media marketing agency helping brands grow across Instagram, TikTok, YouTube, and beyond. Services include paid advertising, web development, video editing, graphics design, and strategy consulting."
+        canonical="https://secondspace.studio"
+      />
       <Header />
       <Hero />
       <Services />
