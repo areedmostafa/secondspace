@@ -2,10 +2,16 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import SEO from '@/components/SEO';
 
 const Portfolio = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Portfolio - Video Production & Creative Showcase"
+        description="Explore SecondSpace's creative portfolio featuring video production, short-form content, promotional videos, and motion graphics for brands worldwide."
+        canonical="https://secondspace.studio/portfolio"
+      />
       <Header />
       <main className="pt-20">
         <div className="container mx-auto px-6 py-16">

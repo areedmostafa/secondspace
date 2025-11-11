@@ -4,6 +4,7 @@ import { useTheme } from '@/components/ThemeProvider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 const CaseStudies = () => {
   const navigate = useNavigate();
@@ -15,6 +16,11 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Case Studies - Real Results & Client Success Stories"
+        description="See how SecondSpace helped FitLife UK, GlowSkin UK, and Mad Koffee achieve remarkable growth through strategic social media marketing and content creation."
+        canonical="https://secondspace.studio/case-studies"
+      />
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-background backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-6 py-6">
