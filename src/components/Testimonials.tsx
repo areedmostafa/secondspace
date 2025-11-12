@@ -83,58 +83,83 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Client <span className="text-gradient">Success Stories</span>
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div 
+          ref={ref}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Client Success Stories
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover how brands worldwide achieve exceptional growth through our comprehensive digital marketing solutions.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Real results from real partnerships. See how we've helped brands achieve remarkable growth.
           </p>
         </div>
 
         <div 
-          ref={ref}
-          className={`max-w-4xl mx-auto transition-all duration-700 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          className={`max-w-4xl mx-auto transition-all duration-1000 ${
+            inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <Card className="bg-card border-border">
-            <CardContent className="p-8 md:p-12">
-              <div className="text-center">
-                {/* Stars */}
-                <div className="flex justify-center mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-6 h-6 text-secondary mx-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
+          <Card className="bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-primary/20 shadow-2xl shadow-primary/5 transition-all duration-700 hover:shadow-primary/10 hover:border-primary/30">
+            <CardContent className="p-8 md:p-12 relative">
+              {/* Quote icon */}
+              <div className="absolute top-6 left-6 text-primary/10 text-6xl font-serif">"</div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-2 mb-6 animate-fade-in">
+                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                    <span 
+                      key={i} 
+                      className="text-primary text-2xl transition-all duration-300 hover:scale-125 inline-block"
+                      style={{ 
+                        animationDelay: `${i * 100}ms`,
+                        animation: 'fade-in 0.5s ease-out forwards'
+                      }}
+                    >
+                      ★
+                    </span>
                   ))}
                 </div>
-
-                {/* Testimonial Content */}
-                <blockquote className="text-xl md:text-2xl font-medium mb-8 leading-relaxed">
-                  "{testimonials[currentIndex].content}"
-                </blockquote>
-
-                {/* Author */}
-                <div className="text-center">
-                  <div className="font-semibold">{testimonials[currentIndex].name}</div>
-                  <div className="text-muted-foreground">{testimonials[currentIndex].title}</div>
+                
+                <p className="text-xl md:text-2xl mb-8 leading-relaxed text-foreground text-center animate-fade-in" style={{ animationDelay: '200ms' }}>
+                  {testimonials[currentIndex].content}
+                </p>
+                
+                <div className="flex items-center justify-center gap-4 pt-6 border-t border-border/50 animate-fade-in" style={{ animationDelay: '400ms' }}>
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-purple-500/30 flex items-center justify-center font-bold text-lg">
+                    {testimonials[currentIndex].name.charAt(0)}
+                  </div>
+                  <div className="text-left">
+                    <p className="font-semibold text-lg">{testimonials[currentIndex].name}</p>
+                    <p className="text-muted-foreground">{testimonials[currentIndex].title}</p>
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 space-x-3">
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-primary' : 'bg-muted'
+                className={`h-3 rounded-full transition-all duration-500 ${
+                  index === currentIndex 
+                    ? 'bg-gradient-to-r from-primary to-purple-400 w-12 shadow-lg shadow-primary/50' 
+                    : 'bg-muted-foreground/20 hover:bg-muted-foreground/40 w-3'
                 }`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
