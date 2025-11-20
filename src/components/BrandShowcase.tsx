@@ -54,7 +54,7 @@ const BrandShowcase = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-1-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm brand-logo-spotlight transition-all duration-500"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm"
               >
                 <img
                   src={brand.src}
@@ -71,7 +71,7 @@ const BrandShowcase = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-2-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm brand-logo-spotlight transition-all duration-500"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm"
               >
                 <img
                   src={brand.src}
@@ -88,7 +88,7 @@ const BrandShowcase = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-3-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm brand-logo-spotlight transition-all duration-500"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm"
               >
                 <img
                   src={brand.src}
