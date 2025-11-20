@@ -1,32 +1,18 @@
+
 import { Button } from '@/components/ui/button';
 import Counter from '@/components/Counter';
 import { scrollToSection } from '@/utils/scrollToSection';
-import LiquidEther from '@/components/backgrounds/LiquidEther';
 
 const Hero = () => {
   const handleGetAuditClick = () => scrollToSection('contact');
   const handleStrategyCallClick = () => scrollToSection('contact');
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 md:pt-20">
-      {/* Liquid Ether Background */}
-      <div className="absolute inset-0">
-        <LiquidEther
-          colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-          mouseForce={20}
-          cursorSize={100}
-          resolution={0.5}
-          autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-        />
-      </div>
-      
-      {/* Subtle Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background/70"></div>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-dark relative overflow-hidden pt-24 md:pt-20 cinema-grain">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-30"></div>
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
 
       <div className="container mx-auto px-6 text-center relative z-10 pb-16">
         <div className="max-w-4xl mx-auto">
