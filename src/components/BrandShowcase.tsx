@@ -8,6 +8,11 @@ import fitnessPark from "@/assets/brands/fitness-park-new.png";
 import thermeBucuresti from "@/assets/brands/therme-bucuresti-new.png";
 import urbanNest from "@/assets/brands/urban-nest-new.png";
 import roujeParis from "@/assets/brands/rouje-paris-new.png";
+import indieWild from "@/assets/brands/indie-wild-new.png";
+import propertyExperts from "@/assets/brands/property-experts-new.png";
+import lumene from "@/assets/brands/lumene-new.png";
+import beeNature from "@/assets/brands/bee-nature-new.png";
+import barrys from "@/assets/brands/barrys-new.png";
 
 const brands = [
   { src: henuaOrganics, alt: "HENUA Organics" },
@@ -20,11 +25,16 @@ const brands = [
   { src: thermeBucuresti, alt: "Therme București" },
   { src: urbanNest, alt: "Urban Nest" },
   { src: roujeParis, alt: "Rouje Paris" },
+  { src: indieWild, alt: "Indie Wild" },
+  { src: propertyExperts, alt: "The Property Experts" },
+  { src: lumene, alt: "Lumene" },
+  { src: beeNature, alt: "Bee Nature" },
+  { src: barrys, alt: "Barry's" },
 ];
 
 const BrandShowcase = () => {
-  const firstHalf = brands.slice(0, 5);
-  const secondHalf = brands.slice(5);
+  const firstHalf = brands.slice(0, 8);
+  const secondHalf = brands.slice(8);
 
   return (
     <section className="py-20 bg-background overflow-hidden">
