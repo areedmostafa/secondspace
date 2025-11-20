@@ -63,7 +63,7 @@ const BrandShowcase = () => {
                     <img
                       src={brand.src}
                       alt={brand.alt}
-                      className="max-w-[90%] max-h-[70%] object-contain filter brightness-95 dark:brightness-110"
+                      className="max-w-full max-h-[85%] object-contain filter brightness-95 dark:brightness-110"
                       loading="lazy"
                     />
                   </div>
@@ -87,7 +87,7 @@ const BrandShowcase = () => {
                     <img
                       src={brand.src}
                       alt={brand.alt}
-                      className="max-w-[90%] max-h-[70%] object-contain filter brightness-95 dark:brightness-110"
+                      className="max-w-full max-h-[85%] object-contain filter brightness-95 dark:brightness-110"
                       loading="lazy"
                     />
                   </div>
@@ -108,7 +108,7 @@ const BrandShowcase = () => {
                     <img
                       src={brand.src}
                       alt={brand.alt}
-                      className="max-w-[90%] max-h-[70%] object-contain filter brightness-95 dark:brightness-110"
+                      className="max-w-full max-h-[85%] object-contain filter brightness-95 dark:brightness-110"
                       loading="lazy"
                     />
                   </div>
