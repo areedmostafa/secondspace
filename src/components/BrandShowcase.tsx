@@ -1,38 +1,30 @@
-import henuaOrganics from "@/assets/brands/henua-organics.png";
-import itmNaturkosmetik from "@/assets/brands/itm-naturkosmetik.png";
-import santaverde from "@/assets/brands/santaverde.png";
-import trueOrganic from "@/assets/brands/true-organic.png";
-import fitnessPark from "@/assets/brands/fitness-park.png";
-import thermeBucuresti from "@/assets/brands/therme-bucuresti.png";
-import roujeParis from "@/assets/brands/rouje-paris.png";
-import indieWild from "@/assets/brands/indie-wild.png";
-import propertyExperts from "@/assets/brands/property-experts.png";
-import barrys from "@/assets/brands/barrys.png";
-import fitlife from "@/assets/brands/fitlife.png";
-import urbanNest from "@/assets/brands/urban-nest.png";
-import lumene from "@/assets/brands/lumene.png";
-import beeNature from "@/assets/brands/bee-nature.png";
+import henuaOrganics from "@/assets/brands/henua-organics-new.png";
+import fitlife from "@/assets/brands/fitlife-new.png";
+import santaverde from "@/assets/brands/santaverde-new.png";
+import itmNaturkosmetik from "@/assets/brands/itm-naturkosmetik-new.png";
+import trueOrganic from "@/assets/brands/true-organic-new.png";
+import salonVisage from "@/assets/brands/salon-visage-new.png";
+import fitnessPark from "@/assets/brands/fitness-park-new.png";
+import thermeBucuresti from "@/assets/brands/therme-bucuresti-new.png";
+import urbanNest from "@/assets/brands/urban-nest-new.png";
+import roujeParis from "@/assets/brands/rouje-paris-new.png";
 
 const brands = [
   { src: henuaOrganics, alt: "HENUA Organics" },
-  { src: itmNaturkosmetik, alt: "i+m Naturkosmetik Berlin" },
+  { src: fitlife, alt: "FitLife" },
   { src: santaverde, alt: "Santaverde Naturkosmetik" },
+  { src: itmNaturkosmetik, alt: "i+m Naturkosmetik Berlin" },
   { src: trueOrganic, alt: "True Organic of Sweden" },
+  { src: salonVisage, alt: "Salon Visage" },
   { src: fitnessPark, alt: "Fitness Park" },
   { src: thermeBucuresti, alt: "Therme București" },
-  { src: roujeParis, alt: "Rouje Paris" },
-  { src: indieWild, alt: "Indie Wild" },
-  { src: propertyExperts, alt: "The Property Experts" },
-  { src: barrys, alt: "Barry's" },
-  { src: fitlife, alt: "FitLife" },
   { src: urbanNest, alt: "Urban Nest" },
-  { src: lumene, alt: "Lumene" },
-  { src: beeNature, alt: "Bee Nature" },
+  { src: roujeParis, alt: "Rouje Paris" },
 ];
 
 const BrandShowcase = () => {
-  const firstHalf = brands.slice(0, 7);
-  const secondHalf = brands.slice(7);
+  const firstHalf = brands.slice(0, 5);
+  const secondHalf = brands.slice(5);
 
   return (
     <section className="py-20 bg-background overflow-hidden">
