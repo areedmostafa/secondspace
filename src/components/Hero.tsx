@@ -12,18 +12,21 @@ const Hero = () => {
       {/* Liquid Ether Background */}
       <div className="absolute inset-0">
         <LiquidEther
-          colors={['#FF4444', '#FFD700', '#000000']}
+          colors={['#5227FF', '#FF9FFC', '#B19EEF']}
           mouseForce={20}
-          cursorSize={120}
+          cursorSize={100}
           resolution={0.5}
           autoDemo={true}
-          autoSpeed={0.3}
-          autoIntensity={2.5}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
         />
       </div>
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background/80"></div>
+      {/* Subtle Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background/70"></div>
 
       <div className="container mx-auto px-6 text-center relative z-10 pb-16">
         <div className="max-w-4xl mx-auto">
