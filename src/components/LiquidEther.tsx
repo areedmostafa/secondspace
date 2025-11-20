@@ -409,6 +409,8 @@ export default function LiquidEther({
       }
       update(...args: any[]) {
         const props = args[0] || {};
+        if (!this.uniforms) return;
+        
         const forceX = (Mouse.diff.x / 2) * (props.mouse_force || 0);
         const forceY = (Mouse.diff.y / 2) * (props.mouse_force || 0);
         const cellScale = props.cellScale || { x: 1, y: 1 };
@@ -423,10 +425,10 @@ export default function LiquidEther({
           Math.max(Mouse.coords.y, -1 + cursorSizeY + cellScale.y * 2),
           1 - cursorSizeY - cellScale.y * 2
         );
-        const uniforms = (this.mouse.material as THREE.RawShaderMaterial).uniforms;
-        uniforms.force.value.set(forceX, forceY);
-        uniforms.center.value.set(centerX, centerY);
-        uniforms.scale.value.set(cursorSize, cursorSize);
+        
+        this.uniforms.force.value.set(forceX, forceY);
+        this.uniforms.center.value.set(centerX, centerY);
+        this.uniforms.scale.value.set(cursorSize, cursorSize);
         super.update();
       }
     }
