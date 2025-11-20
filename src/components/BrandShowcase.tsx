@@ -31,6 +31,9 @@ const brands = [
 ];
 
 const BrandShowcase = () => {
+  const firstHalf = brands.slice(0, 7);
+  const secondHalf = brands.slice(7);
+
   return (
     <section className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
@@ -47,55 +50,69 @@ const BrandShowcase = () => {
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
-        {/* Infinite scroll container - 3 identical sets for seamless loop */}
-        <div className="flex animate-infinite-scroll">
-          {/* First set of logos */}
-          <div className="flex items-center gap-12 px-6">
-            {brands.map((brand, index) => (
-              <div
-                key={`brand-1-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm"
-              >
-                <img
-                  src={brand.src}
-                  alt={brand.alt}
-                  className="max-w-full max-h-full object-contain filter brightness-95 dark:brightness-110"
-                  loading="lazy"
-                />
+        {/* Desktop: Single row scrolling left */}
+        <div className="hidden md:block">
+          <div className="flex animate-infinite-scroll">
+            {[...Array(3)].map((_, setIndex) => (
+              <div key={setIndex} className="flex items-center gap-12 px-6" aria-hidden={setIndex > 0}>
+                {brands.map((brand, index) => (
+                  <div
+                    key={`brand-${setIndex}-${index}`}
+                    className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm"
+                  >
+                    <img
+                      src={brand.src}
+                      alt={brand.alt}
+                      className="max-w-[90%] max-h-[70%] object-contain filter brightness-95 dark:brightness-110"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: Two rows with opposite scrolling */}
+        <div className="md:hidden space-y-6">
+          {/* Top row - scrolls left to right */}
+          <div className="flex animate-infinite-scroll-reverse">
+            {[...Array(3)].map((_, setIndex) => (
+              <div key={setIndex} className="flex items-center gap-8 px-4" aria-hidden={setIndex > 0}>
+                {firstHalf.map((brand, index) => (
+                  <div
+                    key={`brand-top-${setIndex}-${index}`}
+                    className="flex-shrink-0 w-32 h-16 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-4 backdrop-blur-sm border border-border/20 shadow-sm"
+                  >
+                    <img
+                      src={brand.src}
+                      alt={brand.alt}
+                      className="max-w-[90%] max-h-[70%] object-contain filter brightness-95 dark:brightness-110"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
 
-          {/* Duplicate set for seamless infinite loop */}
-          <div className="flex items-center gap-12 px-6" aria-hidden="true">
-            {brands.map((brand, index) => (
-              <div
-                key={`brand-2-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm"
-              >
-                <img
-                  src={brand.src}
-                  alt={brand.alt}
-                  className="max-w-full max-h-full object-contain filter brightness-95 dark:brightness-110"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Third set for extra smoothness */}
-          <div className="flex items-center gap-12 px-6" aria-hidden="true">
-            {brands.map((brand, index) => (
-              <div
-                key={`brand-3-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-6 backdrop-blur-sm border border-border/20 shadow-sm"
-              >
-                <img
-                  src={brand.src}
-                  alt={brand.alt}
-                  className="max-w-full max-h-full object-contain filter brightness-95 dark:brightness-110"
-                  loading="lazy"
-                />
+          {/* Bottom row - scrolls right to left */}
+          <div className="flex animate-infinite-scroll">
+            {[...Array(3)].map((_, setIndex) => (
+              <div key={setIndex} className="flex items-center gap-8 px-4" aria-hidden={setIndex > 0}>
+                {secondHalf.map((brand, index) => (
+                  <div
+                    key={`brand-bottom-${setIndex}-${index}`}
+                    className="flex-shrink-0 w-32 h-16 flex items-center justify-center bg-white/90 dark:bg-white/95 rounded-full px-4 backdrop-blur-sm border border-border/20 shadow-sm"
+                  >
+                    <img
+                      src={brand.src}
+                      alt={brand.alt}
+                      className="max-w-[90%] max-h-[70%] object-contain filter brightness-95 dark:brightness-110"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>

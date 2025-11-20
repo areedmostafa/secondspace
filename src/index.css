@@ -199,7 +199,20 @@
     }
   }
 
+  @keyframes infinite-scroll-reverse {
+    from {
+      transform: translateX(-33.333%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
   .animate-infinite-scroll {
     animation: infinite-scroll 50s linear infinite;
+  }
+
+  .animate-infinite-scroll-reverse {
+    animation: infinite-scroll-reverse 50s linear infinite;
   }
 }
