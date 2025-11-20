@@ -202,4 +202,32 @@
   .animate-infinite-scroll {
     animation: infinite-scroll 50s linear infinite;
   }
+
+  /* Spotlight effect for brand logos */
+  @keyframes logo-spotlight {
+    0%, 100% {
+      transform: scale(0.95);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  .brand-logo-spotlight {
+    animation: logo-spotlight 8s ease-in-out infinite;
+  }
+
+  .brand-logo-spotlight:nth-child(2n) {
+    animation-delay: -2s;
+  }
+
+  .brand-logo-spotlight:nth-child(3n) {
+    animation-delay: -4s;
+  }
+
+  .brand-logo-spotlight:nth-child(4n) {
+    animation-delay: -6s;
+  }
 }
