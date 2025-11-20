@@ -106,8 +106,37 @@ export const SEO = ({
     // Canonical URL
     updateLinkTag('canonical', pageUrl);
 
-    // Structured data for organization
-    const structuredData = {
+    // Structured data for homepage Organization or page-specific data
+    const isHomepage = location.pathname === '/';
+    
+    const structuredData = isHomepage ? {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'SecondSpace',
+      alternateName: 'SecondSpace Studio',
+      url: siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: defaultImage,
+      },
+      description: defaultDescription,
+      sameAs: [
+        'https://www.instagram.com/secondspace_agency',
+        'https://twitter.com/secondspace_agency',
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'Customer Service',
+        email: 'hello@secondspace.studio',
+      },
+      potentialAction: [
+        {
+          '@type': 'SearchAction',
+          target: `${siteUrl}/blog?q={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
+      ],
+    } : {
       '@context': 'https://schema.org',
       '@type': type === 'article' ? 'Article' : 'WebPage',
       headline: title || defaultTitle,
