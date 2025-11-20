@@ -189,17 +189,17 @@
     83.33% { transform: translate(-1px, 2px) }
   }
 
-  /* Infinite scroll animation for brand logos */
+  /* Infinite scroll animation for brand logos - seamless 2-set loop */
   @keyframes infinite-scroll {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-33.333%);
+      transform: translateX(-50%);
     }
   }
 
   .animate-infinite-scroll {
-    animation: infinite-scroll 40s linear infinite;
+    animation: infinite-scroll 50s linear infinite;
   }
 }
