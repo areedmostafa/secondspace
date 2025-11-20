@@ -8,6 +8,10 @@ import roujeParis from "@/assets/brands/rouje-paris.png";
 import indieWild from "@/assets/brands/indie-wild.png";
 import propertyExperts from "@/assets/brands/property-experts.png";
 import barrys from "@/assets/brands/barrys.png";
+import fitlife from "@/assets/brands/fitlife.png";
+import urbanNest from "@/assets/brands/urban-nest.png";
+import lumene from "@/assets/brands/lumene.png";
+import beeNature from "@/assets/brands/bee-nature.png";
 
 const brands = [
   { src: henuaOrganics, alt: "HENUA Organics" },
@@ -20,6 +24,10 @@ const brands = [
   { src: indieWild, alt: "Indie Wild" },
   { src: propertyExperts, alt: "The Property Experts" },
   { src: barrys, alt: "Barry's" },
+  { src: fitlife, alt: "FitLife" },
+  { src: urbanNest, alt: "Urban Nest" },
+  { src: lumene, alt: "Lumene" },
+  { src: beeNature, alt: "Bee Nature" },
 ];
 
 const BrandShowcase = () => {
@@ -40,18 +48,18 @@ const BrandShowcase = () => {
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
         {/* Infinite scroll container */}
-        <div className="flex animate-infinite-scroll hover:[animation-play-state:paused]">
+        <div className="flex animate-infinite-scroll">
           {/* First set of logos */}
           <div className="flex items-center gap-12 px-6">
             {brands.map((brand, index) => (
               <div
                 key={`brand-1-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/30 to-muted/10 rounded-full px-6 backdrop-blur-sm border border-border/20 transition-transform duration-300 hover:scale-105"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/60 to-muted/40 rounded-full px-6 backdrop-blur-sm border border-border/30"
               >
                 <img
                   src={brand.src}
                   alt={brand.alt}
-                  className="max-w-full max-h-full object-contain filter brightness-90 dark:brightness-110"
+                  className="max-w-full max-h-full object-contain filter brightness-95 dark:brightness-110"
                   loading="lazy"
                 />
               </div>
@@ -63,12 +71,12 @@ const BrandShowcase = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-2-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/30 to-muted/10 rounded-full px-6 backdrop-blur-sm border border-border/20 transition-transform duration-300 hover:scale-105"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/60 to-muted/40 rounded-full px-6 backdrop-blur-sm border border-border/30"
               >
                 <img
                   src={brand.src}
                   alt={brand.alt}
-                  className="max-w-full max-h-full object-contain filter brightness-90 dark:brightness-110"
+                  className="max-w-full max-h-full object-contain filter brightness-95 dark:brightness-110"
                   loading="lazy"
                 />
               </div>
@@ -80,12 +88,12 @@ const BrandShowcase = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-3-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/30 to-muted/10 rounded-full px-6 backdrop-blur-sm border border-border/20 transition-transform duration-300 hover:scale-105"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/60 to-muted/40 rounded-full px-6 backdrop-blur-sm border border-border/30"
               >
                 <img
                   src={brand.src}
                   alt={brand.alt}
-                  className="max-w-full max-h-full object-contain filter brightness-90 dark:brightness-110"
+                  className="max-w-full max-h-full object-contain filter brightness-95 dark:brightness-110"
                   loading="lazy"
                 />
               </div>
