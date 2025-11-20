@@ -47,14 +47,14 @@ const BrandShowcase = () => {
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
-        {/* Infinite scroll container - 2 identical sets for seamless loop */}
+        {/* Infinite scroll container - 3 identical sets for seamless loop */}
         <div className="flex animate-infinite-scroll">
           {/* First set of logos */}
           <div className="flex items-center gap-12 px-6">
             {brands.map((brand, index) => (
               <div
                 key={`brand-1-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/60 to-muted/40 rounded-full px-6 backdrop-blur-sm border border-border/30"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/40 to-muted/20 rounded-full px-6 backdrop-blur-sm border border-border/30"
               >
                 <img
                   src={brand.src}
@@ -71,7 +71,24 @@ const BrandShowcase = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-2-${index}`}
-                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/60 to-muted/40 rounded-full px-6 backdrop-blur-sm border border-border/30"
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/40 to-muted/20 rounded-full px-6 backdrop-blur-sm border border-border/30"
+              >
+                <img
+                  src={brand.src}
+                  alt={brand.alt}
+                  className="max-w-full max-h-full object-contain filter brightness-95 dark:brightness-110"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Third set for extra smoothness */}
+          <div className="flex items-center gap-12 px-6" aria-hidden="true">
+            {brands.map((brand, index) => (
+              <div
+                key={`brand-3-${index}`}
+                className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-gradient-to-br from-muted/40 to-muted/20 rounded-full px-6 backdrop-blur-sm border border-border/30"
               >
                 <img
                   src={brand.src}
