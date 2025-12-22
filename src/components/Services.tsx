@@ -23,12 +23,6 @@ interface Service {
   gradient: string;
   slug: string;
 }
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  features: string[];
-  gradient: string;
-}
 
 const services: Service[] = [
   {
