@@ -1,4 +1,5 @@
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
 import { 
   Smartphone, 
   Target, 
@@ -20,6 +21,13 @@ interface Service {
   icon: LucideIcon;
   features: string[];
   gradient: string;
+  slug: string;
+}
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  features: string[];
+  gradient: string;
 }
 
 const services: Service[] = [
@@ -28,70 +36,80 @@ const services: Service[] = [
     description: "Complete strategy, content creation, and community management across all major platforms.",
     icon: Smartphone,
     features: ["Cross-Platform Strategy", "Daily Content Creation", "Community Engagement", "Brand Voice"],
-    gradient: "from-rose-500 to-orange-500"
+    gradient: "from-rose-500 to-orange-500",
+    slug: "social-media-management"
   },
   {
     title: "Paid Advertising",
     description: "High-ROI Meta & TikTok Ads with advanced retargeting that converts.",
     icon: Target,
     features: ["Meta Advertising", "TikTok Campaigns", "Retargeting", "A/B Testing"],
-    gradient: "from-violet-500 to-purple-500"
+    gradient: "from-violet-500 to-purple-500",
+    slug: "paid-advertising"
   },
   {
     title: "Web Development",
     description: "Custom websites and e-commerce solutions built for performance and conversion.",
     icon: Globe,
     features: ["Custom Development", "E-commerce", "Mobile-First", "SEO Optimization"],
-    gradient: "from-cyan-500 to-blue-500"
+    gradient: "from-cyan-500 to-blue-500",
+    slug: "web-development"
   },
   {
     title: "App Development",
     description: "Native and cross-platform mobile apps that deliver exceptional user experiences.",
     icon: Cpu,
     features: ["iOS & Android", "Cross-Platform", "App Store Launch", "Ongoing Support"],
-    gradient: "from-emerald-500 to-teal-500"
+    gradient: "from-emerald-500 to-teal-500",
+    slug: "app-development"
   },
   {
     title: "Software Development",
     description: "Custom software solutions and SaaS products tailored to your business needs.",
     icon: Code2,
     features: ["Custom Software", "SaaS Products", "API Integration", "Cloud Solutions"],
-    gradient: "from-amber-500 to-yellow-500"
+    gradient: "from-amber-500 to-yellow-500",
+    slug: "software-development"
   },
   {
     title: "UI/UX Design",
     description: "Human-centered design that creates intuitive, engaging digital experiences.",
     icon: Figma,
     features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
-    gradient: "from-pink-500 to-rose-500"
+    gradient: "from-pink-500 to-rose-500",
+    slug: "ui-ux-design"
   },
   {
     title: "Video Editing",
     description: "Professional video content for social media, ads, and promotional campaigns.",
     icon: Video,
     features: ["Social Videos", "Ad Creatives", "Motion Graphics", "Reels & Shorts"],
-    gradient: "from-red-500 to-pink-500"
+    gradient: "from-red-500 to-pink-500",
+    slug: "video-editing"
   },
   {
     title: "Graphics Design",
     description: "Eye-catching visuals for branding and marketing that drive engagement.",
     icon: Palette,
     features: ["Brand Identity", "Social Graphics", "Marketing Materials", "Logo Design"],
-    gradient: "from-indigo-500 to-violet-500"
+    gradient: "from-indigo-500 to-violet-500",
+    slug: "graphics-design"
   },
   {
     title: "AI Automation",
     description: "Intelligent automation solutions that streamline workflows and boost efficiency.",
     icon: Zap,
     features: ["Workflow Automation", "AI Chatbots", "Data Processing", "Smart Analytics"],
-    gradient: "from-fuchsia-500 to-purple-500"
+    gradient: "from-fuchsia-500 to-purple-500",
+    slug: "ai-automation"
   },
   {
     title: "Strategy Consulting",
     description: "Expert guidance on digital strategy, optimization, and growth planning.",
     icon: Brain,
     features: ["Strategy Audit", "Growth Planning", "Platform Optimization", "Team Training"],
-    gradient: "from-orange-500 to-amber-500"
+    gradient: "from-orange-500 to-amber-500",
+    slug: "strategy-consulting"
   }
 ];
 
@@ -152,12 +170,12 @@ const ServiceCard = ({ service, index, inView }: { service: Service; index: numb
           </div>
           
           {/* Explore link - reveals on hover */}
-          <div className="flex items-center gap-2 text-sm font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+          <Link to={`/services/${service.slug}`} className="flex items-center gap-2 text-sm font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
             <span className={`bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
               Explore Service
             </span>
             <ArrowRight className={`w-4 h-4 text-primary transition-transform duration-300 group-hover:translate-x-1`} />
-          </div>
+          </Link>
         </div>
       </div>
     </div>

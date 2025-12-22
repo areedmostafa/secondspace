@@ -17,6 +17,16 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
+import SocialMediaManagement from "./pages/services/SocialMediaManagement";
+import PaidAdvertising from "./pages/services/PaidAdvertising";
+import WebDevelopment from "./pages/services/WebDevelopment";
+import AppDevelopment from "./pages/services/AppDevelopment";
+import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
+import UIUXDesign from "./pages/services/UIUXDesign";
+import VideoEditing from "./pages/services/VideoEditing";
+import GraphicsDesign from "./pages/services/GraphicsDesign";
+import AIAutomation from "./pages/services/AIAutomation";
+import StrategyConsulting from "./pages/services/StrategyConsulting";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +50,16 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/services/social-media-management" element={<SocialMediaManagement />} />
+            <Route path="/services/paid-advertising" element={<PaidAdvertising />} />
+            <Route path="/services/web-development" element={<WebDevelopment />} />
+            <Route path="/services/app-development" element={<AppDevelopment />} />
+            <Route path="/services/software-development" element={<SoftwareDevelopment />} />
+            <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
+            <Route path="/services/video-editing" element={<VideoEditing />} />
+            <Route path="/services/graphics-design" element={<GraphicsDesign />} />
+            <Route path="/services/ai-automation" element={<AIAutomation />} />
+            <Route path="/services/strategy-consulting" element={<StrategyConsulting />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
