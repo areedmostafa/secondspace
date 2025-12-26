@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
 import Header from '@/components/Header';
-import HorizonHeroSection from '@/components/ui/horizon-hero-section';
+import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import BrandShowcase from '@/components/BrandShowcase';
@@ -25,7 +25,7 @@ const Index = () => {
         canonical="https://secondspace.studio"
       />
       <Header />
-      <HorizonHeroSection />
+      <Hero />
       <Services />
       <About />
       <BrandShowcase />
