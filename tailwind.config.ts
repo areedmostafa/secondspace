@@ -19,9 +19,10 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'inter': ['Inter', 'sans-serif'],
-			},
+		fontFamily: {
+			'heading': ['Space Grotesk', 'sans-serif'],
+			'body': ['DM Sans', 'sans-serif'],
+		},
 			spacing: {
 				'17': '4.25rem',
 			},

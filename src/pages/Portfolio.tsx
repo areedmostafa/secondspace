@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import SEO from '@/components/SEO';
-import { Play, Image, Film, Palette, Sparkles, ArrowRight } from 'lucide-react';
+import { Play, Share2, Megaphone, PenTool, Sparkles, ArrowRight } from 'lucide-react';
 
 const portfolioCategories = [
   {
@@ -11,31 +11,27 @@ const portfolioCategories = [
     description: "Explore our video portfolio featuring short form content, promotional videos, and motion graphics.",
     icon: Play,
     link: "/portfolio/videos",
-    gradient: "from-rose-500 to-pink-500",
     delay: 0,
   },
   {
     title: "Social Media",
     description: "Scroll-stopping social content that drives engagement and builds communities.",
-    icon: Image,
+    icon: Share2,
     link: "/portfolio/videos",
-    gradient: "from-blue-500 to-cyan-500",
     delay: 0.1,
   },
   {
     title: "Brand Campaigns",
     description: "Integrated campaigns that elevate brands and create lasting impressions.",
-    icon: Film,
+    icon: Megaphone,
     link: "/portfolio/videos",
-    gradient: "from-purple-500 to-violet-500",
     delay: 0.2,
   },
   {
     title: "Design Work",
     description: "Visual identities and creative assets that capture brand essence.",
-    icon: Palette,
+    icon: PenTool,
     link: "/portfolio/videos",
-    gradient: "from-amber-500 to-orange-500",
     delay: 0.3,
   },
 ];
@@ -107,16 +103,16 @@ const Portfolio = () => {
                   {/* Glassmorphism Card */}
                   <div className="relative rounded-3xl overflow-hidden h-full">
                     {/* Gradient Border Effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${category.gradient} rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm`} />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm" />
                     
                     {/* Card Content */}
                     <div className="relative bg-card/40 backdrop-blur-xl border border-border/30 rounded-3xl p-8 m-[1px] h-full transition-all duration-500 group-hover:bg-card/60 group-hover:border-primary/30">
                       {/* Icon Background Glow */}
-                      <div className={`absolute top-8 right-8 w-32 h-32 bg-gradient-to-r ${category.gradient} rounded-full blur-3xl opacity-10 group-hover:opacity-30 transition-opacity duration-500`} />
+                      <div className="absolute top-8 right-8 w-32 h-32 bg-gradient-to-r from-primary/50 to-secondary/50 rounded-full blur-3xl opacity-10 group-hover:opacity-30 transition-opacity duration-500" />
                       
                       {/* Icon */}
-                      <div className={`relative w-16 h-16 bg-gradient-to-r ${category.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
-                        <Icon className="w-8 h-8 text-white" />
+                      <div className="relative w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
+                        <Icon className="w-8 h-8 text-primary-foreground" />
                       </div>
                       
                       {/* Content */}
